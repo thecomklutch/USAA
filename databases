@@ -1,0 +1,242 @@
+//users table in the database
+
+CREATE TABLE `usaa`.`users` ( `card_no` VARCHAR(20) NOT NULL , `passport_no` VARCHAR(20) NOT NULL , `first` VARCHAR(255) NOT NULL , `second` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `phone` VARCHAR(15) NOT NULL , `passhash` VARCHAR(255) NOT NULL , `wilaya` VARCHAR(255) NOT NULL , `year` VARCHAR(255) NOT NULL , `course` VARCHAR(255) NOT NULL , `versity` VARCHAR(255) NOT NULL , `dob` VARCHAR(10) NOT NULL , `gender` ENUM("F","M") NOT NULL , `AC_type` ENUM("A","S","N") NOT NULL , `status` ENUM("active", "inactive", "Locked", "Pending") NOT NULL , `message` VARCHAR(255) NOT NULL , `created_at` DATETIME NOT NULL , `parent_name` VARCHAR(255) NOT NULL , `parent_contact` VARCHAR(15) NOT NULL , `home` VARCHAR(255) NOT NULL , `nationality` VARCHAR(255) NOT NULL , `doi` VARCHAR(10) NOT NULL , `dob2` VARCHAR(10) NOT NULL , `code1` VARCHAR(10) NOT NULL , `code2` VARCHAR(10) NOT NULL , `year_of_entry` YEAR NOT NULL , `work` ENUM("None","Representative") NOT NULL , PRIMARY KEY (`passport_no`), UNIQUE (`card_no`, `email`, `phone`)) ENGINE = InnoDB;
+
+//posts table in the usaa database
+CREATE TABLE `usaa`.`posts` ( `id` INT NOT NULL AUTO_INCREMENT , `passport_no` VARCHAR(20) NOT NULL , `post` VARCHAR(255) NOT NULL , `approved` BOOLEAN NOT NULL , `created_by` VARCHAR(20) NOT NULL , `wilaya` VARCHAR(255) NOT NULL , `created_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+//events tablesin the database
+CREATE TABLE `usaa`.`events` ( `id` INT NOT NULL AUTO_INCREMENT , `passport_no` VARCHAR(15) NOT NULL , `type` ENUM("E","A") NOT NULL , `title` VARCHAR(30) NOT NULL , `description` VARCHAR(255) NOT NULL , `created_by` VARCHAR(255) NOT NULL , `created_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+//user sample data 
+INSERT INTO `users` (`card_no`, `passport_no`, `first`, `second`, `email`, `phone`, `passhash`, `wilaya`, `year`, `course`, `versity`, `dob`, `gender`, `AC_type`, `status`, `message`, `created_at`, `parent_name`, `parent_contact`, `home`, `nationality`, `doi`, `dob2`, `code1`, `code2`, `year_of_entry`, `work`) VALUES ('UGA550', 'B1200', 'lutaaya', 'Andrew', 'andy@gmail.com', '07725658832', 'bddjdhd76dsdsdsvd', 'Bejai', 'year 1', 'Arch', 'Bejai', '02/11/1990', 'M', 'A', 'active', '', '01/12/2015', 'Bogere', '0772565831', 'Kamapala', 'Uganda', '01/11/2019', '01/12/1998', '', '', '2015', 'Representative'), ('UG5501', 'B50001', 'jason', 'hunk', 'jason@gmail.com', '077383382', 'hdyd8d9s8dushdsd98h', 'oran', 'Yr 3', 'Mechanical Engineering ', 'Oran', '02/05/1997', 'M', 'A', 'active', '', '02/12/2018', 'mugerwa', '083732823828', 'Igaga', 'Uganda', '05/10/2018', '01/05/1998', '', '', '2015', 'Representative');
+
+//sample posts
+INSERT INTO `posts` (`id`, `passport_no`, `post`, `approved`, `created_by`, `wilaya`, `created_at`) VALUES (NULL, 'B1200', 'i love her so much and am in love ', '0', 'jason hunk', 'Bejai', CURRENT_TIMESTAMP), (NULL, 'B', 'food is all our life that we love so much and we feel we cant stay without it ', '1', 'lutaaya andrew', 'Bejai', CURRENT_TIMESTAMP);
+
+//sample events 
+INSERT INTO `events` (`id`, `passport_no`, `type`, `title`, `description`, `created_by`, `created_at`) VALUES (NULL, 'B1200', 'A', 'food ', 'foood has been brought to the restuarant just waiting for you guys to come and pick it ', 'jaon hunk', CURRENT_TIMESTAMP), (NULL, 'B50001', 'E', 'Results', 'you guys are all argued to go and pick ure marks results from ure respective lecturers', 'lutaaya andrew', CURRENT_TIMESTAMP);
+
+//test user data 
+INSERT INTO `users` (`card_no`, `passport_no`, `first`, `second`, `email`, `phone`, `passhash`, `wilaya`, `year`, `course`, `versity`, `dob`, `gender`, `AC_type`, `status`, `message`, `created_at`, `parent_name`, `parent_contact`, `home`, `nationality`, `doi`, `dob2`, `code1`, `code2`, `year_of_entry`, `work`) VALUES ('UG551', 'B54252', 'Semugoma', 'Solomon', 'solomon@gmail.com', '0864445656', 'hdhds67s6d7dsdsdgsd9', 'telemcen', 'Yr 1', 'ST', 'Telcmcen', '03/05/1996', 'M', 'N', 'Pending', '', '01/12/2015', 'Oscar', '08464744', 'Kampala', 'Uganda', '01/11/2019', '01/12/1998', '', '', '2018', 'None'), ('UG7446', 'B646474', 'kavuuma', 'Oscar', 'oscar@gmail.com', '0636338688', 'hdhd7dshdus78ds', 'Blida', 'M1', 'French', 'Blida', '02/05/1997', 'M', 'A', 'Pending', '', '02/12/2018', 'Sulaite', '9739393938837', 'Ntinda', 'Uganda', '05/10/2018', '01/05/1998', '', '', '2017', 'None');
+
+//notofication table
+CREATE TABLE `usaa`.`Notifications` ( `id` INT NOT NULL AUTO_INCREMENT , `receiver` VARCHAR(11) NOT NULL , `message` VARCHAR(255) NOT NULL , `status` ENUM("read", "unread") NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+//adding the column in the posts databse
+ALTER TABLE `posts` ADD `year` VARCHAR(11) NOT NULL AFTER `created_by`;
+
+//adding a bank account column in the user's table
+ALTER TABLE `users` CHANGE `message` `bankaccount` ENUM("Yes", "no") CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+
+//universities database
+CREATE TABLE `usaa`.`details` ( `id` INT NOT NULL AUTO_INCREMENT , `universities` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+//universities
+INSERT INTO `details` (`id`, `universities`) VALUES (NULL, 'all'),
+(NULL, 'Université 20 Août 1955 de Skikda'), 
+(NULL, 'Université 8 Mai 1945 de Guelma'), 
+(NULL, 'Université Abbès Laghrour Khenchela'), 
+(NULL, 'Université Abdelhamid Ibn Badis Mostaganem'), 
+(NULL, 'Université Abderrahmane Mira de Béjaia'), 
+(NULL, 'Université Abou Bekr Belkaid Tlemcen'), 
+(NULL, 'Université Ahmed Ben Bella d`Oran 1'), 
+(NULL, 'Université Ahmed Draia d`Adrar'), 
+(NULL, 'Université Amar Telidji de Laghouat'), 
+(NULL, 'Université Badji Mokhtar de Annaba'), 
+(NULL, 'Université Batna 1'), 
+(NULL, 'Université Chadli Bendjedid d`El Tarf'), 
+(NULL, 'Université Constantine 2 Abdelhamid Mehri'), 
+(NULL, 'Université d`Alger 1'), 
+(NULL, 'Université d`Alger 2'), 
+(NULL, 'Université d`Alger 3'), 
+(NULL, 'Université de Batna 2'), 
+(NULL, 'Université de Constantine 3'), 
+(NULL, 'Université de Ghardaia'), 
+(NULL, 'Université des Frères Mentouri de Constantine 1'), 
+(NULL, 'Université des Sciences et de la Technologie d`Oran'), 
+(NULL, 'Université des Sciences et de la Technologie Houari Boumediène'), 
+(NULL, 'Université des Sciences Islamiques Emir Abdelkader'), 
+(NULL, 'Université Djilali Bounaama Khemis Miliana'), 
+(NULL, 'Université Djillali Liabès de Sidi-Bel-Abbès'), 
+(NULL, 'Université Docteur Moulay Tahar de Saida'), 
+(NULL, 'Université Ferhat Abbas de Sétif 1'), 
+(NULL, 'Université Hassiba Ben Bouali de Chlef'), 
+(NULL, 'Université IBN Khaldoun Tiaret'), 
+(NULL, 'Université Kasdi Merbah de Ouargla'), 
+(NULL, 'Université Larbi Ben Mhidi de Oum El Bouaghi'), 
+(NULL, 'Université Larbi Tebessi de Tébessa'), 
+(NULL, 'Université Lounici Ali de Blida 2'), 
+(NULL, 'Université M`hamed Bouguerra de Boumerdes'), 
+(NULL, 'Université Mohamed Ben Ahmed d`Oran 2'), 
+(NULL, 'Université Mohamed Boudiaf de M`sila'), 
+(NULL, 'Université Mohamed El Bachir El Ibrahimi de Bordj Bou Arréridj'), 
+(NULL, 'Université Mohamed Khider de Biskra'), 
+(NULL, 'Université Mohamed Lakhdar Ben Amara dit Hamma Lakhdar d`El Oued'), 
+(NULL, 'Université Mohamed Lamine Debaghine de Sétif 2'), 
+(NULL, 'Université Mohamed Seddik Ben Yahia de Jijel'), 
+(NULL, 'Université Mohamed-Chérif Messaadia Souk Ahras'), 
+(NULL, 'Université Mohand Oulhadj de Bouira'), 
+(NULL, 'Université Mouloud Maameri de Tizi Ouzou'), 
+(NULL, 'Université Mustapha Stambouli de Mascara'), 
+(NULL, 'Université Saad Dahlab de Blida'), 
+(NULL, 'Université Tahri Mohammed Béchar'), 
+(NULL, 'Université Yahia Fares de Médéa'), 
+(NULL, 'Université Ziane Achour de Djelfa')
+
+
+//add the location table
+ALTER TABLE `details` ADD `location` VARCHAR NOT NULL AFTER `universities`;
+
+//add wilayaz to the universities table
+UPDATE `details` SET `location` = 'all' WHERE `details`.`id` = 1;
+UPDATE `details` SET `location` = 'Skikda' WHERE `details`.`id` = 2;
+UPDATE `details` SET `location` = 'Guelma' WHERE `details`.`id` = 3;
+UPDATE `details` SET `location` = 'Khenchela' WHERE `details`.`id` = 4;
+UPDATE `details` SET `location` = 'Mostaganem' WHERE `details`.`id` = 5;
+UPDATE `details` SET `location` = 'Béjaïa' WHERE `details`.`id` = 6;
+UPDATE `details` SET `location` = 'Tlemcen' WHERE `details`.`id` = 7;
+UPDATE `details` SET `location` = 'Oran' WHERE `details`.`id` = 8;
+UPDATE `details` SET `location` = 'Adrar' WHERE `details`.`id` = 9;
+UPDATE `details` SET `location` = 'Laghouat' WHERE `details`.`id` = 10;
+UPDATE `details` SET `location` = 'Annaba' WHERE `details`.`id` = 11;
+UPDATE `details` SET `location` = 'Batna' WHERE `details`.`id` = 12;
+UPDATE `details` SET `location` = 'El Taref' WHERE `details`.`id` = 13;
+UPDATE `details` SET `location` = 'Constantine' WHERE `details`.`id` = 14;
+UPDATE `details` SET `location` = 'Algiers' WHERE `details`.`id` = 15;
+UPDATE `details` SET `location` = 'Algiers' WHERE `details`.`id` = 16;
+UPDATE `details` SET `location` = 'Algiers' WHERE `details`.`id` = 17;
+UPDATE `details` SET `location` = 'Batna ...' WHERE `details`.`id` = 18;
+UPDATE `details` SET `location` = 'Constantine' WHERE `details`.`id` = 19;
+UPDATE `details` SET `location` = 'Ghardaia' WHERE `details`.`id` = 20;
+UPDATE `details` SET `location` = 'Constantine' WHERE `details`.`id` = 21;
+UPDATE `details` SET `location` = 'Oran' WHERE `details`.`id` = 22;
+UPDATE `details` SET `location` = 'Algiers' WHERE `details`.`id` = 23;
+UPDATE `details` SET `location` = 'Constantine' WHERE `details`.`id` = 24;
+UPDATE `details` SET `location` = 'Khemis Miliana' WHERE `details`.`id` = 25;
+UPDATE `details` SET `location` = 'Sidi Bel Abbès' WHERE `details`.`id` = 26;
+UPDATE `details` SET `location` = 'Saïda' WHERE `details`.`id` = 27;
+UPDATE `details` SET `location` = 'Sétif' WHERE `details`.`id` = 28;
+UPDATE `details` SET `location` = 'Chlef' WHERE `details`.`id` = 29;
+UPDATE `details` SET `location` = 'Tiaret' WHERE `details`.`id` = 30;
+UPDATE `details` SET `location` = 'Ouargla' WHERE `details`.`id` = 31;
+UPDATE `details` SET `location` = 'Oum El Bouaghi' WHERE `details`.`id` = 32;
+UPDATE `details` SET `location` = 'Tébessa' WHERE `details`.`id` = 33;
+UPDATE `details` SET `location` = 'El Affroun' WHERE `details`.`id` = 34;
+UPDATE `details` SET `location` = 'Boumerdès' WHERE `details`.`id` = 35;
+UPDATE `details` SET `location` = 'Oran' WHERE `details`.`id` = 36;
+UPDATE `details` SET `location` = 'M`Sila' WHERE `details`.`id` = 37;
+UPDATE `details` SET `location` = 'Bordj Bou Arreridj' WHERE `details`.`id` = 38;
+UPDATE `details` SET `location` = 'Biskra' WHERE `details`.`id` = 39;
+UPDATE `details` SET `location` = 'El Oued' WHERE `details`.`id` = 40;
+UPDATE `details` SET `location` = 'Sétif' WHERE `details`.`id` = 41;
+UPDATE `details` SET `location` = 'Jijel' WHERE `details`.`id` = 42;
+UPDATE `details` SET `location` = 'Souk Ahras' WHERE `details`.`id` = 43;
+UPDATE `details` SET `location` = 'Bouïra' WHERE `details`.`id` = 44;
+UPDATE `details` SET `location` = 'Tizi-Ouzou' WHERE `details`.`id` = 45;
+UPDATE `details` SET `location` = 'Mascara' WHERE `details`.`id` = 46;
+UPDATE `details` SET `location` = 'Blida' WHERE `details`.`id` = 47;
+UPDATE `details` SET `location` = 'Béchar' WHERE `details`.`id` = 48;
+UPDATE `details` SET `location` = 'Médéa' WHERE `details`.`id` = 49;
+UPDATE `details` SET `location` = 'Djelfa' WHERE `details`.`id` = 50;
+
+//add the msg_state field in the user's table
+ALTER TABLE `users` ADD `msg_state` VARCHAR(255) NOT NULL AFTER `status`; 
+
+
+//bank accounts details 
+CREATE TABLE `usaa`.`bdetails` ( `Names` VARCHAR(255) NOT NULL , `personal_address` VARCHAR(255) NOT NULL , `Account_no` INT(20) NOT NULL , `Bank_name` VARCHAR(255) NOT NULL , `Bank_Address` VARCHAR(255) NOT NULL , `AccountType` ENUM("Dollar($)","Euro($)") NOT NULL , `Submitted_at` DATETIME NOT NULL , `passsport_no` VARCHAR(20) NOT NULL , PRIMARY KEY (`Account_no`)) ENGINE = InnoDB;
+
+
+//adding the time row in nottification table
+ALTER TABLE `Notifications` ADD `created_at` DATETIME NOT NULL AFTER `status`;
+
+
+//course change request table 
+CREATE TABLE `usaa`.`coursechange` ( `id` INT NOT NULL AUTO_INCREMENT , `passport_no` VARCHAR(20) NOT NULL , `names` VARCHAR(255) NOT NULL , `previouscourse` VARCHAR(255) NOT NULL , `course1` VARCHAR(255) NOT NULL , `course2` VARCHAR(255) NOT NULL , `wilaya1` VARCHAR(255) NOT NULL , `wilaya2` VARCHAR(255) NOT NULL , `reaason` VARCHAR(255) NOT NULL , `submitted_at` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+//track record for students 
+CREATE TABLE `usaa`.`track_record` ( `id` INT NOT NULL AUTO_INCREMENT , `passport_no` VARCHAR(20) NOT NULL , `courseaplications` INT(11) NOT NULL , `bankaccount` ENUM("Yes","No") NOT NULL , `no_of_suggestions` INT(11) NOT NULL , `no_of_posts` INT(11) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+//altering the notification database
+ALTER TABLE `Notifications` ADD `sender` VARCHAR(20) NOT NULL AFTER `created_at`;
+
+//mpification of the events table
+ALTER TABLE `events` ADD `date` VARCHAR(20) NOT NULL AFTER `description`;
+
+//adding the swift code row 
+ALTER TABLE `bdetails` ADD `swift_code` VARCHAR(20) NOT NULL AFTER `Account_no`;
+
+//modfification
+ALTER TABLE `bdetails` CHANGE `Account_no` `Account_no` VARCHAR(20) NOT NULL;
+
+modifying bank table
+ALTER TABLE `bdetails` CHANGE `Submitted_at` `Submitted_at` YEAR NOT NULL;
+
+
+
+//adding the statistics table
+CREATE TABLE `usaa`.`statistics` ( `id` INT NOT NULL AUTO_INCREMENT , `year` YEAR NOT NULL , `girls` INT NOT NULL , `boys` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+INSERT INTO `statistics` (`id`, `year`, `girls`, `boys`) VALUES (NULL, '2010', '0', '0'),
+ (NULL, '2011', '0', '0'),
+ (NULL, '2012', '0', '0'),
+ (NULL, '2013', '0', '0'),
+ (NULL, '2014', '0', '0'),
+ (NULL, '2015', '0', '0'),
+ (NULL, '2016', '0', '0'),
+ (NULL, '2017', '0', '0'),
+ (NULL, '2018', '0', '0'),
+ (NULL, '2019', '0', '0'),
+ (NULL, '2020', '0', '0'),
+ (NULL, '2021', '0', '0'),
+ (NULL, '2022', '0', '0'),
+ (NULL, '2023', '0', '0'),
+ (NULL, '2024', '0', '0'),
+ (NULL, '2025', '0', '0'),
+ (NULL, '2026', '0', '0'),
+ (NULL, '2027', '0', '0'),
+ (NULL, '2028', '0', '0'),
+ (NULL, '2029', '0', '0'),
+ (NULL, '2030', '0', '0')
+
+
+
+
+ //adding the wilaya stats table in the datbase
+ CREATE TABLE `usaa`.`wilayastats` ( `id` INT NOT NULL AUTO_INCREMENT , `wilaya` VARCHAR(20) NOT NULL , `studentscount` INT(11) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ //adding banks to the database
+ ALTER TABLE `details` ADD `banknames` VARCHAR(255) NOT NULL AFTER `location`;
+
+ //insert data into the database
+ UPDATE `details` SET `banknames` = 'hh' WHERE `details`.`id` = 2;
+
+ UPDATE `details` SET `location` = 'all' WHERE `details`.`id` = 1;
+
+
+
+UPDATE `details` SET `banknames` = "Banque extérieure d’Algérie" WHERE `details`.`id` = 2;
+UPDATE `details` SET `banknames` = "Banque nationale d’Algérie" WHERE `details`.`id` = 3;
+UPDATE `details` SET `banknames` = "Banque de l'agriculture et du développement rural" WHERE `details`.`id` = 4; 
+UPDATE `details` SET `banknames` = "Banque de développement local" WHERE `details`.`id` = 5; 
+UPDATE `details` SET `banknames` = "Crédit populaire d'Algérie" WHERE `details`.`id` = 6; 
+UPDATE `details` SET `banknames` = "Caisse nationale d'épargne et de prévoyance" WHERE `details`.`id` = 7;
+UPDATE `details` SET `banknames` = "Caisse nationale de mutualité agricole" WHERE `details`.`id` = 8; 
+UPDATE `details` SET `banknames` = "Banque Al Baraka Algerie" WHERE `details`.`id` = 9;
+UPDATE `details` SET `banknames` = "Arab Banking Corporation" WHERE `details`.`id` = 10;
+UPDATE `details` SET `banknames` = "Natixis Banque" WHERE `details`.`id` = 11;
+UPDATE `details` SET `banknames` = "Societe Generale Algerie" WHERE `details`.`id` = 12;
+UPDATE `details` SET `banknames` = "Citibank" WHERE `details`.`id` = 13;
+UPDATE `details` SET `banknames` = "Arab Bank Plc" WHERE `details`.`id` = 14;
+UPDATE `details` SET `banknames` = "BNP Paribas el Djazair" WHERE `details`.`id` = 15;
+UPDATE `details` SET `banknames` = "Trust Bank Algeria" WHERE `details`.`id` = 16;
+UPDATE `details` SET `banknames` = "Gulf Bank Algeria" WHERE `details`.`id` = 2;
+UPDATE `details` SET `banknames` = "Housing Bank for Trade and Finance" WHERE `details`.`id` = 17;
+UPDATE `details` SET `banknames` = "Fransabank el Djazair" WHERE `details`.`id` = 18;
+UPDATE `details` SET `banknames` = "Calyon Algerie SPA" WHERE `details`.`id` = 19;
+UPDATE `details` SET `banknames` = "Al Salam Bank Algeria SPA" WHERE `details`.`id` = 20;
+UPDATE `details` SET `banknames` = "HSBC Algeria SPA" WHERE `details`.`id` = 21;
+

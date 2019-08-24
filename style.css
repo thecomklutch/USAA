@@ -1,0 +1,11 @@
+
+.bg-img {
+	background-image: url("banner.png");
+	min-height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	margin: 7px;
+}
+
