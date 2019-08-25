@@ -22,7 +22,7 @@
 				<input id="input" type="password" minlength="6" maxlength="10" name="pass1" placeholder="Password" class="w3-input w3-light-grey w3-border w3-round" >
 				</div>
 				<!--button-->
-					<button id="btn" name="login" class="w3-button w3-block w3-blue w3-round w3-section w3-round w3-padding w3-section " type="submit" style="width:40%;">Login</button>
+					<button id="btn" name="login" class="w3-button w3-block w3-blue w3-round w3-section w3-round w3-padding w3-section " type="submit" >Login</button>
 			</div class ="w3-text-center">
 			<div class="w3-container">
 				<!--forgot section-->
