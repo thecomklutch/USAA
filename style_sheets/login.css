@@ -26,6 +26,10 @@ body{
     margin-bottom: 25px;
 
 }
+#input:focus{
+    box-shadow: 0 0 10px rgba(81, 203, 238, 1);
+    border: 5px solid rgb(59, 211, 253);
+}
 #input::before{
     font-family: 'Font Awesome\ 5 free';
     font-weight: 900;
@@ -35,12 +39,29 @@ body{
 #forgot{
     font-family: 'roboto', sans-serif;
     color: white;
+    padding: 5px 0px 20px;    
+}
+#forgot a{
+    color: white;
+    font-family: 'roboto', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
     
 }
+
 #btn{
+    background-color: #3190e2;
     padding: 7px 14px;
     font-size: 19px;
-    align-content: center;
-    align
-
+    border-radius: 5px;
+    border-bottom: 4px solid #286090;
+    width: 40%;
+    
 }
+
+#btn:hover{
+    background-color: #25537c;
+    border-bottom: 4px solid #25537c;
+
+  }
