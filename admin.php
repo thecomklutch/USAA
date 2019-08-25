@@ -456,8 +456,7 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
 	  <?php }} else {echo "No new accounts now";}?>
 </div>
   <hr>
-  it is me 
-
+  
 <!--All approved posts-->
   <div class="w3-container">
     <h5 style="color: #28477a;">Recent Suggestions</h5>
