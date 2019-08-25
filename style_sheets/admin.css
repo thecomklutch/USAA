@@ -1,0 +1,43 @@
+@import url(//fonts.googleapis.com/css?family=roboto);
+html,body,h1,h2,h3,h4,h5 {
+    font-family: "Roboto", sans-
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+#div-side{
+    background-color: #ededed;
+    color: white;
+    font-family: 'roboto', sans-serif;
+    color: #333333;
+    font-size: 18;
+    text-decoration: white;
+}
+
+#div-side a{
+    font-family: 'roboto', sans-serif;
+    color: #333333;
+    font-size: 20;
+    text-decoration: white;
+    border-width: 1px 0 0;
+    border-style: solid #333333;
+}
+
+#bta{
+    font-family: 'roboto', sans-serif;
+    color: #333333;
+    font-size: 20;
+    text-decoration: white;   
+}
+
+div .a{
+    font-size: 20;
+    font-weight: bold;   
+}

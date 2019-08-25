@@ -5,9 +5,7 @@ body{
 .a{
     font-family: 'roboto', sans-serif;
 }
-
-
-#card{
+#card-signup{
     border-radius: 5px;
     text-align: center;
     margin: 0 auto;
@@ -16,10 +14,9 @@ body{
     background-color: #3b4652;
     opacity: .85;
     box-shadow: 0px 0px 30x #848484;
-   
+    text-decoration-color: white;   
     
 }
-
 #input{
     border: 0;
     border-radius: 5px;
@@ -34,34 +31,4 @@ body{
     font-family: 'Font Awesome\ 5 free';
     font-weight: 900;
     content: "\f007";
-}
-
-#forgot{
-    font-family: 'roboto', sans-serif;
-    color: white;
-    padding: 5px 0px 20px;    
-}
-#forgot a{
-    color: white;
-    font-family: 'roboto', sans-serif;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 16px;
-    
-}
-
-#btn{
-    background-color: #3190e2;
-    padding: 7px 14px;
-    font-size: 19px;
-    border-radius: 5px;
-    border-bottom: 4px solid #286090;
-    width: 40%;
- 
-}
-
-#btn:hover{
-    background-color: #25537c;
-    border-bottom: 4px solid #25537c;
-
 }

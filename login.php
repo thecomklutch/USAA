@@ -3,6 +3,8 @@
 <?php include('signup_login.php');?>
 <link rel="stylesheet" type="text/css" href="style_sheets/login.css">
 <link rel="stylesheet" href="style_sheets/fontawesome-free-5.10.2-web/css/font-awesome.min.css">
+<link rel="icon" href="upload/usaa.ico">
+
 <title>Login</title>
 </head>
 <body>

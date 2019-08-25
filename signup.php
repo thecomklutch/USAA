@@ -2,9 +2,13 @@
 <?php include('config.php')?>
 <?php include('signup_login.php');?>
 <title>Signup</title>
+<head>
+<link rel="icon" href="upload/usaa.ico">
+<link rel="stylesheet" type="text/css" href="style_sheets/signup.css">
+
 </head>
 <body>
-	<div class="w3-modal-content w3-card-4" style="max-width: 700px; margin-top: 40px; margin-bottom: 40px;">
+	<div id="card-signup" class="w3-modal-content w3-card-4" style="max-width: 700px; margin-top: 40px; margin-bottom: 40px;">
 		<div class="w3-center"><br>
 			<img src="usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">
 		</div>
@@ -16,23 +20,23 @@
 			<fieldset class="w3-round">
 			<legend align="center" class="w3-large"></b>Personal Information</b></legend>
 			<!--personal inforamtion-->
-				<label>first_name:</label>
-				<input type="text" name="name1" placeholder="first name" class="w3-input w3-light-grey w3-border w3-round">
-				<label>second_name:</label>
-				<input type="text" name="name2" placeholder="second name" class="w3-input w3-light-grey w3-border w3-round" >
-				<label>Phone Number:</label>
-				<input type="number" name="phone_no" placeholder="Phone_number" class="w3-input w3-light-grey w3-border w3-round" >
+				<!--<label>first_name:</label>-->
+				<input id="input" type="text" name="name1" placeholder="first name" class="w3-section w3-input w3-light-grey w3-border w3-round">
+				<!--<label>second_name:</label>-->
+				<input id="input" type="text" name="name2" placeholder="second name" class="w3-input w3-light-grey w3-border w3-round" >
+				<!--<label>Phone Number:</label>-->
+				<input id="input" type="number" name="phone_no" placeholder="Phone_number" class="w3-input w3-light-grey w3-border w3-round" >
 				<br>
-				<label>Email:</label>
-				<input type="email" name="email" placeholder ="Email" class="w3-input w3-light-grey w3-border w3-round" ><br>
-				<label>Parent's Name:</label>
-				<input type="text" name="parent_name" placeholder="Parent or Guardian's name" class="w3-input w3-light-grey w3-border w3-round" >
-				<label>Parent's Contact</label>
-				<input type="text" name="parent_contact" placeholder="Parent or Guardian's contact" class="w3-input w3-light-grey w3-border w3-round" >
-				<label>Home District:</label>
-				<input type="text" name="home" placeholder="Home District" class="w3-input w3-light-grey w3-border w3-round" >
-				<label>Date Of Birth:</label>
-				<input type="text" name="dob" placeholder="dd/mm/yyy" class="w3-input w3-light-grey w3-border w3-round" >
+				<!--<label>Email:</label>-->
+				<input id="input" type="email" name="email" placeholder ="Email" class="w3-input w3-light-grey w3-border w3-round" ><br>
+				<!--<label>Parent's Name:</label>-->
+				<input id="input" type="text" name="parent_name" placeholder="Parent or Guardian's name" class="w3-input w3-light-grey w3-border w3-round" >
+				<!--<label>Parent's Contact</label>-->
+				<input id="input" type="text" name="parent_contact" placeholder="Parent or Guardian's contact" class="w3-input w3-light-grey w3-border w3-round" >
+				<!--<label>Home District:</label>-->
+				<input id="input" type="text" name="home" placeholder="Home District" class="w3-input w3-light-grey w3-border w3-round" >
+				<!--<label>Date Of Birth:</label>-->
+				<input id="input" type="text" name="dob" placeholder="dd/mm/yyy" class="w3-input w3-light-grey w3-border w3-round" >
 				<br>
 				<label>Password:</label>
 				<input type="password" minlength="6" maxlength="10" name="pass1" placeholder="Password" class="w3-input w3-light-grey w3-border w3-round" >

@@ -32,24 +32,8 @@ $adminmessages = messagesforadmin(); //admin messages from the crowd
 <script type="text/javascript" src="admin/usaa2.js"></script>
 <script type="text/javascript" src="admin/usaa3.js"></script>
 <script type="text/javascript" src="admin/usaa4.js"></script>
-
-
-
-
-<style>
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-html {
-    overflow: scroll;
-    overflow-x: hidden;
-}
- /* Optional: just make scrollbar invisible */
-}
-/* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-    background: #FF0000;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="style_sheets/admin.css">
+<link rel="icon" href="upload/usaa.ico">
 </head>
 <body class="w3-light-grey" onLoad="scrollDiv_init()">
 
@@ -63,7 +47,7 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
 </div>
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px; overflow: hidden;" id="mySidebar"><br>
+<nav id="sidebar-menu" class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px; overflow: hidden;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
       <img src="usaa.jpg" class="w3-circle w3-margin-right" style="width:80px">
@@ -76,9 +60,9 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
   <hr style="margin-top: 7px; margin-bottom: 5px;">
   <div class="w3-container">
   </div>
-  <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"  style="color: #23527c;"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding" style="color: #152238;"><i class="fa fa-home fa-fw"></i> Home</a>
+  <div id="div-side" class="w3-bar-block">
+    <a id="bta" href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"  style="color: #23527c;"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a id="bta" href="#" class="w3-bar-item w3-button w3-padding" style="color: #152238; border-width: 1px 0 0; border-style: solid #333333;"><i class="fa fa-home fa-fw"></i> Home</a>
     <div class="w3-dropdown-hover">
       <btn class="w3-bar-item w3-button w3-padding" style="color: #152238;"><i class="fa fa-rss fa-fw"></i> Posts and announcements</btn>
       <div class="w3-dropdown-content w3-bar-block w3-sand w3-round" style="">
