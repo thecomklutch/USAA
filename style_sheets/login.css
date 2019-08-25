@@ -57,11 +57,11 @@ body{
     border-radius: 5px;
     border-bottom: 4px solid #286090;
     width: 40%;
-    display: flex; justify-content: center;
+    
 }
 
 #btn:hover{
     background-color: #25537c;
     border-bottom: 4px solid #25537c;
 
-}
+  }
