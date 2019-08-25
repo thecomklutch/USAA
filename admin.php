@@ -417,10 +417,11 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
   </div>
   <hr>
   <div class="w3-container" style="height: auto; max-height: 430px; overflow: hidden;">
+  
 	  <!--New accounts requests -->
     <h5 style="color: #28477a;">New Accounts Requets (<?php echo count($requests); ?>)</h5>
-    <? if (count($requests) > 0){
-		foreach ($requests as $requestx) {?>
+    <?php if (count($requests) > 0){ 
+		foreach ($requests as $requestx) {?> 
     <div class="w3-card" style="width: 900px; height: 170px;">
 			<header class="w3-container w3-blue">
 				<h6 style="float: left;"><?php echo $requestx['first'].' '.$requestx['second'].' '.'('.$requestx['gender'].')';?></h6>
@@ -442,7 +443,7 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
 					</div>
 					<div class="w3-third">
 						<span style="color: #021638;">Parent's Name :</span> <span style="color: #0c123b;"><?php echo $requestx['parent_name'];?></span><br>
-						<span style="color: #021638;">Parent's Contact :</span> <span style="color: #0c123b;"><?php echo $requestx['parent_contact'];?></span><br>
+						<span style="color: #021638;">Parent contact:</span> <span style="color: #0c123b;"><?php echo $requestx['parent_contact'];?></span></span><br>         
 						<span style="color: #021638;">Home District :</span> <span style="color: #0c123b;"><?php echo $requestx['home'];?></span></span><br>
 						<span style="color: #021638;">Date of Birth :</span> <span style="color: #0c123b;"><?php echo $requestx['dob'];?></span><br>
 					</div>
@@ -451,9 +452,9 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
 			<div class="w3-dark-grey w3-container" style="margin-top: 5px; margin-bottom: 0px;"><span style="color: #0c123b;">
 				<button class="w3-button w3-hover-none" style="float: left;" onclick="actions('Approve account', '<?php echo $requestx['passport_no'];?>')">+ Confirm</button>
 				<button class="w3-button w3-hover-none" style="float: right;" onclick="actions('Delete new', '<?php echo $requestx['passport_no'];?>')">- Delete</button>
-			</div>
+      </div>
 	</div><br>
-	  <?php }} else {echo "No new accounts now";}?>
+	  <?php }} else {echo "No new accounts now";}?>   
 </div>
   <hr>
 

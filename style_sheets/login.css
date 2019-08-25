@@ -1,0 +1,44 @@
+@import url(//fonts.googleapis.com/css?family=roboto);
+body{
+    font-family: 'roboto', sans-serif;
+}
+.a{
+    font-family: 'roboto', sans-serif;
+}
+
+
+#card{
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 130;
+    padding: 0 18px;
+    background-color: #3b4652;
+    opacity: .85;
+    box-shadow: 0px 0px 30x #848484;
+   
+    
+}
+
+#input{
+    border: 0;
+    border-radius: 5px;
+    margin-bottom: 25px;
+
+}
+#input::before{
+    font-family: 'Font Awesome\ 5 free';
+    font-weight: 900;
+    content: "\f007";
+}
+
+#forgot{
+    font-family: 'roboto', sans-serif;
+    color: white;
+    
+}
+#btn{
+    padding: 7px 14px;
+    font-size: 19px;
+
+}
