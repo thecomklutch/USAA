@@ -419,7 +419,7 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
   <div class="w3-container" style="height: auto; max-height: 430px; overflow: hidden;">
 	  <!--New accounts requests -->
     <h5 style="color: #28477a;">New Accounts Requets (<?php echo count($requests); ?>)</h5>
-    <? if (count($requests) > 0){
+    <?php if (count($requests) > 0){
 		foreach ($requests as $requestx) {?>
     <div class="w3-card" style="width: 900px; height: 170px;">
 			<header class="w3-container w3-blue">
