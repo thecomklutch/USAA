@@ -57,11 +57,15 @@ body{
     border-radius: 5px;
     border-bottom: 4px solid #286090;
     width: 40%;
+<<<<<<< HEAD
  
+=======
+    
+>>>>>>> e7393803c32683051f5a92e5e8d246c021998e6c
 }
 
 #btn:hover{
     background-color: #25537c;
     border-bottom: 4px solid #25537c;
 
-}
+  }
