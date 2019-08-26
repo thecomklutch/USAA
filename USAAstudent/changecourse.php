@@ -43,7 +43,7 @@
 							if (t11.length == 0){t11 = "null";}
 							//calling the ajax function
 							$.ajax({
-								url:'courserequestpost.php',
+								url:'USAAstudent/courserequestpost.php',
 								method:'POST',
 								datatype: 'json',
 								data:{"pcourse":a11, "course1":b22, "course2":c33, "reason":d33, "wilaya1":y11, "wilaya2":t11},

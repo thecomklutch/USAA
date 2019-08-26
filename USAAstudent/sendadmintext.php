@@ -15,7 +15,7 @@
 	{
 		var msg = $("#adminmsg").val();
 		$.ajax({
-			url: 'sendadminmsg.php',
+			url: 'USAAstudent/sendadminmsg.php',
 			method: 'POST',
 			datatype: 'json',
 			data: {"message":msg},

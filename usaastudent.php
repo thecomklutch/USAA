@@ -1,5 +1,5 @@
-<?php include('config.php'); ?>
-<?php require_once('functions.php'); ?>
+<?php include('USAAstudent/config.php'); ?>
+<?php require_once('USAAstudent/functions.php'); ?>
 <!-- retrieve all suggestions, events and announcements -->
 <!-- Getting display content form the database-->
 <?php $ideas = getsuggestions(); ?>
@@ -11,7 +11,7 @@
 <?php $shouts2 = getannouncement(); ?>
 <?php $officials = getleaders(); ?>
 <?php //$banknamez = banknames1(); ?>
-<?php include('head.php');?>
+<?php include('USAAstudent/head.php');?>
 <title>Home</title>
 
 <!-- Including jQuery is required. -->
@@ -22,11 +22,11 @@
 <body >
 
 <!-- Top banner -->
-<?php include('topbar.php');?>
+<?php include('USAAstudent/topbar.php');?>
 <div class="bg-img w3-container" style="height: 300px;">
 	<!-- navigation bar -->
-	<?php include('navbar.php'); ?>
-	<div class="w3-display-middle w3-small"><img src="usaa.jpg" class="w3-circle w3-opacity-max"></div>
+	<?php include('USAAstudent/navbar.php'); ?>
+	<div class="w3-display-middle w3-small"><img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-opacity-max"></div>
 </div>
 <br />
 
@@ -125,7 +125,7 @@ color: linear-gradient(to right, #4286f4, #373B44);">USAA NOTICE BOARD</h2>
 		</div>
 		<div class="w3-center">
 			<button onclick="document.getElementById('id05').style.display='block'" class="w3-button w3-round w3-small">+previous events notes..</button>
-			<?php include('all_events.php');?>
+			<?php include('USAAstudent/all_events.php');?>
 		</div>
 	</div>
 	<!-- Announcements board -->
@@ -149,14 +149,14 @@ color: linear-gradient(to right, #4286f4, #373B44);">USAA NOTICE BOARD</h2>
 		</div>
 		<div class="w3-center">
 				<button onclick="document.getElementById('id04').style.display='block'" class="w3-button w3-round w3-small">+previous announcements..</button>
-			<?php include('all_announce.php');?>
+			<?php include('USAAstudent/all_announce.php');?>
 		</div>
 	</div>
 </div>
 </div>
 <br>
 <div class="w3-center w3-mobile">
-	<img class="w3-hide-small" src="line.PNG">
+	<img class="w3-hide-small" src="USAAstudent/images/line.PNG">
 </div>
 <br>
 <div class="w3-row-padding">
@@ -184,7 +184,7 @@ color: linear-gradient(to right, #4286f4, #373B44);">USAA NOTICE BOARD</h2>
 		
 		<div class="w3-center">
 			<button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-round w3-small">+more suggestions..</button>
-			<?php include('all_suggestions.php');?>
+			<?php include('USAAstudent/all_suggestions.php');?>
 		</div>
 		<div class="w3-container">
 		<form>
@@ -206,7 +206,7 @@ color: linear-gradient(to right, #4286f4, #373B44);">USAA NOTICE BOARD</h2>
 			//call ajax function
 			$.ajax({
 				type:'POST',
-				url:'postsuggestion.php',
+				url:'USAAstudent/postsuggestion.php',
 				data: {"suggestion":suggestions},
 				success:function(html){
 					$("#statusmessage").html(html).show();
@@ -328,11 +328,12 @@ color: linear-gradient(to right, #4286f4, #373B44);">USAA NOTICE BOARD</h2>
 		</div>
 	</div>
 </div>
-<?php include('modal.php'); ?>
+<!-- announcements and posts modal -->
+<?php include('USAAstudent/EandA.php'); ?>
 <!-- include footer.php -->
 </div>
 </div>
 <hr style="margin-left: 10px; margin-right: 10px;">
 </body>
-<?php include('footer.php');?>
+<?php include('USAAstudent/footer.php');?>
 </html>

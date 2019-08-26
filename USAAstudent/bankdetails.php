@@ -47,7 +47,7 @@
 							var z1 = $("#bswift").val();
 							//calling the ajax function
 							$.ajax({
-								url:'bankacpost.php',
+								url:'USAAstudent/bankacpost.php',
 								method:'POST',
 								datatype: 'json',
 								data:{"ownername":a1, "owneraddress":b2, "banknom":c3, "bankac":d3, "bankaddr":y1, "accounttype":t1, "swift":z1},

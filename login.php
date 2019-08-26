@@ -1,19 +1,19 @@
-<?php include('head.php');?>
-<?php include('config.php');?>
-<?php include('signup_login.php');?>
+<?php include('USAAstudent/head.php');?>
+<?php include('USAAstudent/config.php');?>
+<?php include('USAAstudent/signup_login.php');?>
 <link rel="stylesheet" type="text/css" href="style_sheets/login.css">
 <link rel="stylesheet" href="style_sheets/fontawesome-free-5.10.2-web/css/font-awesome.min.css">
-<link rel="icon" href="upload/usaa.ico">
+<link rel="icon" href="USAAstudent/images/usaa.ico">
 
 <title>Login</title>
 </head>
 <body>
 	<div id="card" class="w3-modal-content w3-card-4 w3-text-center" style="max-width: 400px; margin-top: 40px;">
 		<div class="w3-center"><br>
-			<img src="usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">
+			<img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">
 		</div>
 		<form class="w3-container" method="post" action="login.php">
-			<?php include 'errors.php'; ?>
+			<?php include 'USAAstudent/errors.php'; ?>
 			<div class="w3-section">
 				<!--<label>E-mail/Phone_number:</label> -->
 				<div>

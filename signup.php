@@ -1,18 +1,18 @@
-<?php include('head.php');?>
-<?php include('config.php')?>
-<?php include('signup_login.php');?>
+<?php include('USAAstudent/head.php');?>
+<?php include('USAAstudent/config.php')?>
+<?php include('USAAstudent/signup_login.php');?>
 <title>Signup</title>
 <head>
-<link rel="icon" href="upload/usaa.ico">
+<link rel="icon" href="USAAstudent/images/usaa.ico">
 <link rel="stylesheet" type="text/css" href="style_sheets/signup.css">
 
 </head>
 <body>
 	<div id="card-signup" class="w3-modal-content w3-card-4" style="max-width: 700px; margin-top: 40px; margin-bottom: 40px;">
 		<div class="w3-center"><br>
-			<img src="usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">
+			<img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">
 		</div>
-		<?php include('errors.php'); ?>
+		<?php include('USAAstudent/errors.php'); ?>
 		<form class="w3-container" method="post" action="signup.php">
 			<div class="w3-section">
 

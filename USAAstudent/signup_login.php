@@ -114,7 +114,7 @@
 				}
 
 				 else{
-					header('location: index2.php');
+					header('location: usaastudent.php');
 				}
 			}
 

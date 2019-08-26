@@ -1,8 +1,8 @@
 <?php
 //include admin functions
 include 'admin/admin_functions.php';
-include 'config.php';
-include 'stats.php';
+include 'USAAstudent/config.php';
+include 'admin/stats.php';
 //GET all unappproved suggestions 
 $unapproveds = unapproved();
 $posts = allposts(); //all posts
@@ -33,7 +33,7 @@ $adminmessages = messagesforadmin(); //admin messages from the crowd
 <script type="text/javascript" src="admin/usaa3.js"></script>
 <script type="text/javascript" src="admin/usaa4.js"></script>
 <link rel="stylesheet" type="text/css" href="style_sheets/admin.css">
-<link rel="icon" href="upload/usaa.ico">
+<link rel="icon" href="USAAstudent/images/usaa.ico">
 </head>
 <body class="w3-light-grey" onLoad="scrollDiv_init()">
 
@@ -50,7 +50,7 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
 <nav id="sidebar-menu" class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px; overflow: hidden;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="usaa.jpg" class="w3-circle w3-margin-right" style="width:80px">
+      <img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-margin-right" style="width:80px">
     </div>
     
       <span style="color: #2a3b57;">Welcome, <strong>Admin</strong></span><br>
