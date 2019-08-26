@@ -1,9 +1,9 @@
-<?php include('head.php');?>
-<?php include('config.php')?>
-<?php include('signup_login.php');?>
+<?php include('USAAstudent/head.php');?>
+<?php include('USAAstudent/config.php')?>
+<?php include('USAAstudent/signup_login.php');?>
 <title>Signup</title>
 <head>
-<link rel="icon" href="upload/usaa.ico">
+<link rel="icon" href="USAAstudent/images/usaa.ico">
 <link rel="stylesheet" type="text/css" href="style_sheets/signup2.css">
 <title>Signup</title>
 </head>
