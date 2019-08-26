@@ -32,26 +32,6 @@
 					<span class="w3-button w3-small w3-dark-grey w3-round w3-small" style="max-height: 200px; float: right; margin-bottom: 10px;" onclick="closecontainer2('id02')">Close</span>
 					<br>
 		</form>
-					<script>
-						function postevent()
-						{
-							//get the variables
-							var eventtype = $("#up_event").val();
-							var eventtitle = $("#tittle").val();
-							var eventcontent = $("#descri").val();
-							var eventdate = $("#date").val();
-							//calling the ajax function
-							$.ajax({
-								url:'USAAstudent/postevent.php',
-								method:'POST',
-								datatype: 'json',
-								data:{"posttype":eventtype, "posttitle":eventtitle, "postcontent":eventcontent, "postdate":eventdate},
-								success:function(html){
-									$("#state").html(html).show();
-								}
-							});
-						}
-					</script>
 
 				</div>
 			</div>

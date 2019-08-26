@@ -9,20 +9,3 @@
         <br>
     </div>
 </div>
-
-<script type="text/javascript">
-	function postadmin()
-	{
-		var msg = $("#adminmsg").val();
-		$.ajax({
-			url: 'USAAstudent/sendadminmsg.php',
-			method: 'POST',
-			datatype: 'json',
-			data: {"message":msg},
-			success: function(html){
-				$("#post_status").html(html).show();
-			}
-		});
-	}
-
-</script>

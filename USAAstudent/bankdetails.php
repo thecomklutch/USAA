@@ -33,28 +33,3 @@
 	</form>
 </div>
 
-
-<script type="text/javascript">
-	function postbdetails()
-	{
-		//get the variables
-							var a1 = $("#bname").val();
-							var b2 = $("#bpaddress").val();
-							var c3 = $("#bnname").val();
-							var d3 = $("#baccount").val();
-							var y1 = $("#banklocation").val();
-							var t1 = $("#paccounttype").val();
-							var z1 = $("#bswift").val();
-							//calling the ajax function
-							$.ajax({
-								url:'USAAstudent/bankacpost.php',
-								method:'POST',
-								datatype: 'json',
-								data:{"ownername":a1, "owneraddress":b2, "banknom":c3, "bankac":d3, "bankaddr":y1, "accounttype":t1, "swift":z1},
-								success:function(html){
-									$("#bank_state").html(html).show();
-									
-								}
-							});
-	}
-</script>

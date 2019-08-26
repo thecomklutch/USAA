@@ -18,6 +18,7 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="USAAstudent/usaastudent.js"></script>
 </head>
 <body >
 
@@ -197,42 +198,7 @@ color: linear-gradient(to right, #4286f4, #373B44);">USAA NOTICE BOARD</h2>
 		</div>
 	</div>
 
-	<script>
-		function postsuggestion()
-		{
-			$("#statusmessage").hide();
-			//get comment values
-			var suggestions = $("#suggest").val();//suggestion
-			//call ajax function
-			$.ajax({
-				type:'POST',
-				url:'USAAstudent/postsuggestion.php',
-				data: {"suggestion":suggestions},
-				success:function(html){
-					$("#statusmessage").html(html).show();
-				}
-			});
-		}
-
-		//function to open colapsed box
-		function openAbout() {
-			document.getElementById('aboutandhistory').style.display='block';
-			document.getElementById('CloseTheexpandedBox').style.display='none';
-		}
-
-		function closeAbout() {
-			document.getElementById('aboutandhistory').style.display='none';
-			document.getElementById('CloseTheexpandedBox').style.display='block';
-		}
-		//close the container 
-		function closecontainer2(xy)
-		{
-		  document.getElementById(xy).style.display='none';
-		}
-
-		
-	</script>
-
+	
 	<div class="w3-container w3-col s4 w3-mobile" style="width: 40%;">
 		<div class="w3-container" style="height: auto;">
 		<div class="w3-center">

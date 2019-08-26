@@ -23,33 +23,3 @@
 	</h2>
 	</form>
 </div>
-
-
-
-<script type="text/javascript">
-	function postcoursedetails()
-	{
-		//get the variables
-							var a11 = $("#pcourse").val();
-							var b22 = $("#course1").val();
-							var c33 = $("#course2").val();
-							var d33 = $("#reason").val();
-							var y11 = $("#wilaya1").val();
-							var t11 = $("#wilaya2").val();
-
-							//assign a null value if they are blank
-							if (c33.length == 0){c33 = "null";}
-							if (y11.length == 0){y11 = "null";}
-							if (t11.length == 0){t11 = "null";}
-							//calling the ajax function
-							$.ajax({
-								url:'USAAstudent/courserequestpost.php',
-								method:'POST',
-								datatype: 'json',
-								data:{"pcourse":a11, "course1":b22, "course2":c33, "reason":d33, "wilaya1":y11, "wilaya2":t11},
-								success:function(html){
-									$("#course_state").html(html).show();
-								}
-							});
-	}
-</script>
