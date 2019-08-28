@@ -56,3 +56,7 @@ input:focus{
     box-shadow: 0 0 10px rgb(138, 224, 248);
     border: 5px solid rgb(132, 210, 231);
 }
+Previous-button, next-button{
+ background-color: rgb(39, 124, 221);
+ position: relative;
+}
