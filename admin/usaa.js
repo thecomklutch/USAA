@@ -21,7 +21,7 @@
                $.ajax({
                    //AJAX type is "Post".
                    type: "POST",
-                   //Data will be sent to "ajax.php".
+                   //Data will be sent to "usaastudent.php".
                    url: "admin/usaastudent.php",
                    //Data, that will be sent to "ajax.php".
                    data: {
@@ -30,7 +30,7 @@
                    },
                    //If result found, this funtion will be called.
                    success: function(html) {
-                       //Assigning result to "display" div in "search.php" file.
+                       //Assigning result to "display" div in "admin.php" file.
                        $("#display").html(html).show();
                    }
                });
