@@ -10,7 +10,7 @@
 <body>
 
 <!-- form-->
-<form id ="signup-fom">
+<form id ="signup-form" style="margin: 0 auto;">
     <!-- progress bar-->
      <ul id ="progress-bar">
          <li class = "Personal-info"> Personal Information </li>

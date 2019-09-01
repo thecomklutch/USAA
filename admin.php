@@ -32,6 +32,7 @@ $adminmessages = messagesforadmin(); //admin messages from the crowd
 <script type="text/javascript" src="admin/usaa2.js"></script>
 <script type="text/javascript" src="admin/usaa3.js"></script>
 <script type="text/javascript" src="admin/usaa4.js"></script>
+<script type="text/javascript" src="admin/databaseactions.js"></script>
 <link rel="stylesheet" type="text/css" href="style_sheets/admin.css">
 <link rel="icon" href="USAAstudent/images/usaa.ico">
 </head>
@@ -132,34 +133,40 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
     <div class="w3-center">
       Posts & Suggestions
       <div class="w3-round w3-container w3-border-dark-grey w3-border" style="padding: 20px; margin-bottom: 20px; margin-left: 30px; margin-top: 10px; margin-right: 30px;">
-      <input type="text" class='w3-round w3-input w3-light-grey w3-border' placeholder="Enter the filter of posts to be deleted 'year of post or wilaya'">
+      <input type="text" class='w3-round w3-input w3-light-grey w3-border' placeholder="Enter the year for which the posts should be deleted">
         <br />
-        <button class="w3-button w3-round w3-left w3-small w3-blue">Delete Posts</button>
+        <button id="testbutton" class="w3-button w3-round w3-left w3-small w3-blue" onclick="databaseaction('deleteall')">Delete Posts</button>
+        <div id="databaseresult"></div>
         <br><br><br>
         <i class="w3-small fa fa-exclamation-triangle fa-fw" style="color: red; float: left;"></i> <span class="w3-small" style="float: left; color: red;">Delete all the posts from the database</span><br />
-        <button class="w3-button w3-round w3-left w3-small w3-blue">Delete all posts </button>
+        <button class="w3-button w3-round w3-left w3-small w3-blue" onclick="databaseaction('deleteall')">Delete all posts </button>
+        <div id="databaseresult"></div>
       </div>
     </div>
     <div class="w3-center">
       Events and Announcements 
       <div class="w3-round w3-container w3-border-dark-grey w3-border" style="padding: 20px; margin-bottom: 20px; margin-left: 30px; margin-top: 10px; margin-right: 30px;">
-      <input type="text" class='w3-round w3-input w3-light-grey w3-border' placeholder="Enter the filter of  events and announcements to be deleted 'year of post or wilaya'">
+      <input type="text" class='w3-round w3-input w3-light-grey w3-border' placeholder="Enter the year for the events and announcements to be deleted">
         <br />
-        <button class="w3-button w3-round w3-left w3-small w3-blue">Delete Events and Announcements</button>
+        <button class="w3-button w3-round w3-left w3-small w3-blue" onclick="databaseaction('deleteall')">Delete Events and Announcements</button>
+        <div id="databaseresult"></div>
         <br><br><br>
         <i class="w3-small fa fa-exclamation-triangle fa-fw" style="color: red; float: left;"></i> <span class="w3-small" style="float: left; color: red;">Delete Events and Announcements from the database</span><br />
-        <button class="w3-button w3-round w3-left w3-small w3-blue">Delete all the Events and Announcements from the database</button>
+        <button class="w3-button w3-round w3-left w3-small w3-blue"onclick="databaseaction('deleteallEA')">Delete all the Events and Announcements from the database</button>
+        <div id="databaseresult"></div>
       </div>
     </div>
     <div class="w3-center">
       Admin messages
       <div class="w3-round w3-container w3-border-dark-grey w3-border" style="padding: 20px; margin-bottom: 20px; margin-left: 30px; margin-top: 10px; margin-right: 30px;">
-      <input type="text" class='w3-round w3-input w3-light-grey w3-border' placeholder="Enter the filter of messages to be deleted 'year of post or wilaya'">
+      <input type="text" class='w3-round w3-input w3-light-grey w3-border' placeholder="Enter the year of the messages to be deleted">
         <br />
-        <button class="w3-button w3-round w3-left w3-small w3-blue">Delete Messages</button>
+        <button class="w3-button w3-round w3-left w3-small w3-blue" onclick="databaseaction('deleteall')">Delete Messages</button>
+        <div id="databaseresult"></div>
         <br><br><br>
         <i class="w3-small fa fa-exclamation-triangle fa-fw" style="color: red; float: left;"></i> <span class="w3-small" style="float: left; color: red;">Delete all messages from the database</span><br />
-        <button class="w3-button w3-round w3-left w3-small w3-blue">Delete all messages </button>
+        <button class="w3-button w3-round w3-left w3-small w3-blue" onclick="databaseaction('deleteallmsgs')">Delete all messages </button>
+        <div id="databaseresult"></div>
       </div>
     </div>
     <div class="w3-center">
@@ -174,7 +181,23 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
     <br><br>
     <div class="w3-container"><span class="w3-button w3-small w3-dark-grey w3-round w3-small" style="max-height: 200px; float: right; margin-bottom: 10px;" onclick="closecontainer('databaseactions')">Close</span></div>
   </div>
-
+<!-- js script to handle the database actions  -->
+<script>
+  function databaseaction(a, b) {
+	var actiontype = a;
+	var actionafilter = b;
+	var Data = {'fixedaction':actiontype, 'fixedaction2':actionfilter};
+	$.ajax({
+		url:'admin/databaseactions.php',
+        method:'POST',
+        datatype:'json',
+        data: Data,
+        success:function(html){
+			$("#databaseresult").html(html).show();
+            }
+        });
+}
+</script>
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
