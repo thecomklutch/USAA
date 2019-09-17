@@ -18,7 +18,7 @@
 
 	//get command id to determine the action to be taken 
 	//configurations file
-	include ('config.php');
+	include ('../USAAstudent/config.php');
 	$actiontype = $_POST['action_lebel'];
 	$actionx = $_POST['action_id'];
 

@@ -16,9 +16,16 @@
 	$original = $_SESSION['user']['first']." ".$_SESSION['user']['second'];
 
 
+	// checking if the infomation was already submitted 
+	$bankcheck = "SELECT * FROM `bdetails` WHERE passsport_no = '$passport' AND Account_no='$bankaccount'";
 	if (empty($bankowner) || empty($owneraddr) || empty($bankname) || empty($bankname) || empty($bankaddress) || empty($actype)) {?>
 		<div class="w3-panel w3-small w3-sand w3-round" style="margin-left: 30px; margin-right: 30px;"><h2 class="w3-small w3-text-blue" style="margin: 10px;">
 			<p><?php echo "Some missing information"; ?></p></h2>
+			<?php exit(0);?>
+		</div>
+	<?php } else if(mysqli_query($conn, $bankcheck) == true) {?>
+		<div class="w3-panel w3-small w3-sand w3-round" style="margin-left: 30px; margin-right: 30px;"><h2 class="w3-small w3-text-blue" style="margin: 10px;">
+			<p><?php echo "Bank Details already submitted "; ?></p></h2>
 			<?php exit(0);?>
 		</div>
 	<?php } else if($original != $bankowner) {?>
@@ -27,17 +34,12 @@
 			<?php exit(0);?>
 		</div>
 	<?php } else {
-		$sql = "INSERT INTO `bdetails` (`Names`, `personal_address`, `Account_no`, `swift_code`, `Bank_name`, `Bank_Address`, `AccountType`, `Submitted_at`, `passsport_no`) VALUES ('$bankowner', '$owneraddr', '$bankaccount', '$swiftcode', '$bankname', '$bankaddress', '$actype', CURRENT_TIMESTAMP, '$passport')"; //insertion query
-		if (mysqli_query($conn, $sql) == True)
-		{?>
+		$sql = "INSERT INTO `bdetails` (`Names`, `personal_address`, `Account_no`, `swift_code`, `Bank_name`, `Bank_Address`, `AccountType`, `Submitted_at`, `passsport_no`) 
+		VALUES ('$bankowner', '$owneraddr', '$bankaccount', '$swiftcode', '$bankname', '$bankaddress', '$actype', CURRENT_TIMESTAMP, '$passport')"; //insertion query
+		mysqli_query($conn, $sql);{?>
 			<div class="w3-panel w3-small w3-sand w3-round" style="margin-left: 30px; margin-right: 30px;"><h2 class="w3-small w3-text-blue" style="margin: 10px;">
 				<p><?php echo "Bank detaills submitted sucessfully."; ?></p></h2>
 				<?php exit(0);?>
 			</div>
-		</div>
-	<?php } else {?>
-		<div class="w3-panel w3-small w3-sand w3-round" style="margin-left: 30px; margin-right: 30px;"><h2 class="w3-small w3-text-blue" style="margin: 10px;">
-			<p><?php echo "Somethinng wrong with ure information recheck and try again"; ?></p></h2>
-			<?php exit(0);?>
 		</div>
 	<?php }}?>

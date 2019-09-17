@@ -19,6 +19,27 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="USAAstudent/usaastudent.js"></script>
+
+<!-- adding responsiveness -->
+<script>
+  setInterval(() => {
+    $("#noticeboard").load("usaastudent.php #noticeboard >*");
+  }, 1000);
+
+//   suggestions live 
+	setInterval(() => {
+		$("#suggestionslive").load("usaastudent.php #suggestionslive >*");
+	}, 1000);
+
+// notifications constant update 
+	setInterval(() => {
+		$("#notificationsbar").load("usaastudent.php #notificationsbar >*");
+	}, 1000);
+	setInterval(() => {
+		$("#notificationsbar2").load("usaastudent.php #notificationsbar2 >*");
+	}, 1000);
+	
+</script>
 </head>
 <body >
 
@@ -104,7 +125,7 @@ color: linear-gradient(to right, #4286f4, #373B44);">USAA NOTICE BOARD</h2>
 	<div class="w3-panel" style="height: 10px; width: auto;">
 	</div>
 </div>
-<div class="w3-row-padding">
+<div class="w3-row-padding" id="noticeboard">
 	<!-- Events board -->
 	<div class="w3-container w3-col s4 w3-mobile" style="width:50%;">
 		<div class="w3-center">
@@ -123,10 +144,6 @@ color: linear-gradient(to right, #4286f4, #373B44);">USAA NOTICE BOARD</h2>
 					<div class="w3-panel w3-sand w3-round" style="margin: 10px;"><h2 class="w3-text-red w3-small"> No Events yet</h2></div>
 			<?php }?>
 			</div>
-		</div>
-		<div class="w3-center">
-			<button onclick="document.getElementById('id05').style.display='block'" class="w3-button w3-round w3-small">+previous events notes..</button>
-			<?php include('USAAstudent/all_events.php');?>
 		</div>
 	</div>
 	<!-- Announcements board -->
@@ -148,54 +165,46 @@ color: linear-gradient(to right, #4286f4, #373B44);">USAA NOTICE BOARD</h2>
 				<div class="w3-panel w3-sand w3-round" style="margin: 10px;"><h2 class="w3-text-red w3-small"> No Announcements yet</h2></div>
 			<?php }?>
 		</div>
-		<div class="w3-center">
-				<button onclick="document.getElementById('id04').style.display='block'" class="w3-button w3-round w3-small">+previous announcements..</button>
-			<?php include('USAAstudent/all_announce.php');?>
-		</div>
 	</div>
 </div>
 </div>
 <br>
+<div class="w3-center">
+	<button onclick="document.getElementById('id05').style.display='block'" class="w3-button w3-round w3-small">show more </button>
+	<?php include('USAAstudent/all_events_and_suggestions.php');?>
+</div>
 <div class="w3-center w3-mobile">
 	<img class="w3-hide-small" src="USAAstudent/images/line.PNG">
 </div>
 <br>
 <div class="w3-row-padding">
 	<div class="w3-container w3-col s4 w3-mobile" style="width: 25%;">
-		<div class="w3-center w3-hide-small">
-			<h2 class="w3-large w3-centter"><b>Useful Links</b></h2>
-		</div>
-		<div class="w3-border w3-panel w3-container w3-hide-small w3-round w3-border-black" style="margin: 20px; overflow: auto; height: 100px;">
-			<a href="#" style="padding:10px; margin:10px;">Contacts</a></br>
-			<a href="#" style="padding:10px; margin:10px;">Announcements</a></br>
-			<a href="#" style="padding:10px; margin:10px;">History</a></br>
-			<a href="#" style="padding:10px; margin:10px;">Gallery</a></br>
-		</div><br><br>
 		<div class="w3-center">
 			<button class="w3-btn w3-round w3-center w3-black w3-center" id="suggestion">Suggestions</button><p>
 		</div>
-		<div class="w3-container" style="max-height: 300px; overflow: auto;">
-		<?php foreach ($ideas as $x) {?>
+		<div id="suggestionslive" class="w3-container" style="max-height: 300px; overflow: auto;">
+			<?php foreach ($ideas as $x) {?>
 			<div class="w3-container w3-border w3-round" style="padding:10px; max-height: 150px; overflow: auto;">
-					<?php echo $x['post'];?><br>
-					<h2 class="w3-small">Suggestion by: <b><?php echo $x['created_by'];?></b><br>
-					From: <b><?php echo$x['wilaya'];?></b>				
-			</div><br>
-		<?php }?>
-		
+				<?php echo $x['post'];?><br>
+				<h2 class="w3-small">Suggestion by: <b><?php echo $x['created_by'];?></b><br>
+				From: <b><?php echo$x['wilaya'];?></b>				
+			</div>
+			<br>
+			<?php }?>
+			
+		</div>
 		<div class="w3-center">
-			<button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-round w3-small">+more suggestions..</button>
-			<?php include('USAAstudent/all_suggestions.php');?>
+			<button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-round w3-small">show more</button>
+			<!-- inlcluding the suggestions modal  -->
+			<?php include 'USAAstudent/all_suggestions.php'; ?>
 		</div>
-		<div class="w3-container">
-		<form>
-		<div class="container">
-			<textarea  class="w3-round" placeholder="We so much love to hear from you" id="suggest" cols="25" rows="4" required style="width: 100%;"></textarea>
-			<btn class="w3-button w3-block w3-blue w3-small  w3-section w3-round w3-padding" type="submit" style="width:40%;" onclick="postsuggestion()">Suggest</btn>
+		<div>
+			<div class="container">
+				<textarea  class="w3-round" placeholder="We so much love to hear from you" id="suggest" cols="25" rows="4" required style="width: 100%;"></textarea>
+				<button class="w3-button w3-block w3-blue w3-small  w3-section w3-round w3-padding" type="submit" style="width:40%;" onclick="postsuggestion()">Suggest</button>
+			</div>
 		</div>
-		</form>
 		<div id="statusmessage"></div>
-		</div>
 	</div>
 
 	

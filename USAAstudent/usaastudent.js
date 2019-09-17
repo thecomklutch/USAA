@@ -15,7 +15,16 @@ function postsuggestion()
 					$("#statusmessage").html(html).show();
 				}
 			});
-        }
+		}
+	
+// marking the message as read 
+function changestate(messageid) {
+	$.ajax({
+		type:'POST',
+		url:'USAAstudent/changemessagestate.php',
+		data: {"idofmessage":messageid}
+	});
+}
         
 //function to open colapsed box
 function openAbout() {

@@ -25,9 +25,13 @@
 			
 		</div>
 		<?php } else {
-			$query = "INSERT INTO `posts` (`passport_no`, `post`, `approved`, `created_by`, `wilaya`, `created_at`) VALUES ('$passport', '$post', '0', '$first_name', '$wilaya', CURRENT_TIMESTAMP)";
-			mysqli_query($conn, $query);?>
+			$query = "INSERT IGNORE INTO `posts` (`passport_no`, `post`, `approved`, `created_by`, `wilaya`, `created_at`) VALUES ('$passport', '$post', '0', '$first_name', '$wilaya', CURRENT_TIMESTAMP)";
+			if (mysqli_query($conn, $query) == true) {
+				// drop the unwanted column added to the table 
+				mysqli_query($conn, 'ALTER TABLE `posts` DROP year');
+				?>
 			<div class="w3-panel w3-small w3-sand w3-round" style="margin-left: 30px; margin-right: 30px;"><h2 class="w3-small w3-text-blue" style="margin: 10px;">
 				<p><?php echo "Suggestion Pending for approval"; ?></p></h2>
 			</div>
+			<?php } else { echo mysqli_error($conn);}?>
 			<?php }?>

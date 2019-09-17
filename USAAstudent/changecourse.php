@@ -1,5 +1,5 @@
 <div class="w3-modal" id="coursechange">
-	<form class="w3-panel w3-small w3-round w3-border" style="margin: 0 auto; width: 75%;"><h2 class="w3-small" style="margin: 10px;">
+	<div class="w3-panel w3-small w3-round w3-border" style="margin: 0 auto; width: 75%;"><h2 class="w3-small" style="margin: 10px;">
 		<input type="text" id="pcourse" class="w3-small w3-input w3-round w3-light-grey" placeholder="The course you changing from" required>
 		<br>
 
@@ -21,5 +21,5 @@
 		
 
 	</h2>
-	</form>
+	</div>
 </div>

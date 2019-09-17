@@ -14,13 +14,15 @@
 		        <i class="fa fa-pencil fa-fw"></i> <span class="w3-button w3-hover-dark-grey w3-none" onclick="document.getElementById('coursechange').style.display='block'">Request for Course Change</span>
             <?php include 'changecourse.php';?>
             <br>
-		        <i class="fa fa-bank fa-fw"></i> <span class="w3-button w3-hover-dark-grey w3-none" onclick="document.getElementById('bankdetails').style.display='block'">Bank account</span>
+			<!-- <i class="fa fa-pencil fa-fw"></i><a href="#" class="w3-button w3-hover-dark-grey w3-none" >Review Course change application </a> -->
+			<br />
+		        <i class="fa fa-bank fa-fw"></i> <span class="w3-button w3-hover-dark-grey w3-none" onclick="document.getElementById('bankdetails').style.display='block'">Submit Bank account</span>
             <?php include 'bankdetails.php';?>
             <br>
-		        <i class="fa fa-pencil fa-fw"></i> <span class="w3-button w3-hover-dark-grey w3-none" onclick="document.getElementById('admin_msg').style.display='block'">Send message to Admin</span>
+			<i class="fa fa-pencil fa-fw"></i><a href="USAAstudent/bankaccountinformation.php" class="w3-button w3-hover-dark-grey w3-none" >Review bank account details </a>
+			<br />
+		        <i class="fa fa-pencil fa-fw"></i> <span class="w3-button w3-hover-dark-grey w3-none" onclick="document.getElementById('admin_msg').style.display='block'">Contact Admin</span>
             <?php include 'sendadmintext.php';?>
-            <br>
-	    	</div>
         <hr style="width: 100%; margin-top: 2px; margin-bottom: 2px;">
         <span class="w3-center"><a class="w3-button w3-light-grey" href="logout.php" style="width: 100%;
          	background: #373B44;  /* fallback for old browsers */

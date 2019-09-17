@@ -1,5 +1,5 @@
 <div class="w3-modal" id="bankdetails">
-	<form class="w3-panel w3-small w3-round w3-border" style="margin: 0 auto; width: 75%;"><h2 class="w3-small" style="margin: 10px;">
+	<div class="w3-panel w3-small w3-round w3-border" style="margin: 0 auto; width: 75%;"><h2 class="w3-small" style="margin: 10px;">
 		
 		<input type="text" id="bname" class="w3-small w3-input w3-round w3-light-grey" placeholder="Full name of the beneficiary" required>
 		<br>
@@ -30,6 +30,6 @@
 		<span id="close_passport_details" class="w3-button w3-small w3-dark-grey w3-round w3-small" style="max-height: 200px; float: right; margin-bottom: 10px;" onclick="closecontainer2('bankdetails')">Close</span>
 		<br
 	</h2>
-	</form>
+	</div>
 </div>
 

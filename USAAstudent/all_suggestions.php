@@ -18,4 +18,4 @@
 			<span class="w3-button w3-small w3-dark-grey w3-round w3-small" style="max-height: 200px; float: right; margin-bottom: 10px;" onclick="closecontainer2('id03')">Close</span>
 		</div>
 	</div>
-</div></div>
+</div>

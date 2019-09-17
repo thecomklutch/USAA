@@ -33,9 +33,14 @@ $adminmessages = messagesforadmin(); //admin messages from the crowd
 <script type="text/javascript" src="admin/usaa3.js"></script>
 <script type="text/javascript" src="admin/usaa4.js"></script>
 <script type="text/javascript" src="admin/databaseactions.js"></script>
+<script>
+  setInterval(() => {
+    $("#unapprovedposts").load("admin.php #unapprovedposts >*");
+  }, 1000);
+</script>
 <link rel="stylesheet" type="text/css" href="style_sheets/admin.css">
 <link rel="icon" href="USAAstudent/images/usaa.ico">
-</head>
+</head>  
 <body class="w3-light-grey" onLoad="scrollDiv_init()">
 
   <!--Top menu-->
@@ -313,7 +318,7 @@ background: linear-gradient(to right, #4286f4, #373B44); height: 40px;">
   
       </div>
 <!--feeds of unapproved suggestions-->
-      <div class="w3-half" style="height: auto; max-height: 600px; overflow: hidden;">
+      <div id="unapprovedposts" class="w3-half" style="height: auto; max-height: 600px; overflow: hidden;">
         <h5 style="color: #28477a;">Feeds</h5>
     <?php if (count($unapproveds) > 0){
       foreach ($unapproveds as $unapproved) {?>

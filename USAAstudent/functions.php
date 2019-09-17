@@ -57,11 +57,10 @@
 	function getsuggestions()
 	{
 		global $conn;
+		$suggestions = array();
 		$sql = "SELECT * FROM posts WHERE approved=true ORDER BY `id` DESC LIMIT 2";
 		$result = mysqli_query($conn, $sql);
-
-		//fetch suggestions
-		$suggestions = mysqli_fetch_all($result, MYSQLI_ASSOC);
+		while ($suggestion = mysqli_fetch_assoc($result)) {array_push($suggestions, $suggestion);}
 		return $suggestions;
 	}
 
@@ -69,9 +68,10 @@
 	function getannouncements()
 	{
 		global $conn;
+		$announcements = array();
 		$sql1 = "SELECT * FROM events WHERE type='A' ORDER BY 'id' DESC LIMIT 1";
 		$result1 = mysqli_query($conn, $sql1);
-		$announcements = mysqli_fetch_all($result1, MYSQLI_ASSOC);
+		while ($announcement = mysqli_fetch_assoc($result1)) {array_push($announcements, $announcement);}
 		return $announcements;
 	}
 
@@ -79,9 +79,10 @@
 	function getevents()
 	{
 		global $conn;
+		$events = array();
 		$sqli2 = "SELECT * FROM events WHERE type='E' ORDER BY 'id' DESC LIMIT 1";
 		$result2 = mysqli_query($conn, $sqli2);
-		$events = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+		while ($event1 = mysqli_fetch_assoc($result2)) {array_push($events, $event1);}
 		return $events;
 	}
 
@@ -90,11 +91,10 @@
 	function getsuggestion()
 	{
 		global $conn;
+		$suggestion = array();
 		$sql = "SELECT * FROM posts WHERE approved=true ORDER BY `id` DESC";
 		$result = mysqli_query($conn, $sql);
-
-		//fetch suggestions
-		$suggestion = mysqli_fetch_all($result, MYSQLI_ASSOC);
+		while ($suggestion1 = mysqli_fetch_assoc($result)) {array_push($suggestion, $suggestion1);}
 		return $suggestion;
 	}
 
@@ -102,9 +102,10 @@
 	function getannouncement()
 	{
 		global $conn;
-		$sql1 = "SELECT * FROM events WHERE type='A' ORDER BY 'id' DESC";
+		$announcement = array();
+		$sql1 = "SELECT * FROM events WHERE type='A' ORDER BY 'id' ASC";
 		$result1 = mysqli_query($conn, $sql1);
-		$announcement = mysqli_fetch_all($result1, MYSQLI_ASSOC);
+		while ($announcement1 = mysqli_fetch_assoc($result1)) {array_push($announcement, $announcement1);}
 		return $announcement;
 	}
 
@@ -112,9 +113,10 @@
 	function getevent()
 	{
 		global $conn;
-		$sqli2 = "SELECT * FROM events WHERE type='E' ORDER BY 'id' DESC";
+		$event = array();
+		$sqli2 = "SELECT * FROM events WHERE type='E' ORDER BY 'id' ASC";
 		$result2 = mysqli_query($conn, $sqli2);
-		$event = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+		while ($eventx = mysqli_fetch_assoc($result2)) {array_push($event, $eventx);}
 		return $event;
 	}
 
@@ -123,9 +125,10 @@
 	function getleaders()
 	{
 		global $conn;
+		$leaders = array();
 		$sql = "SELECT first, second, email, phone, wilaya FROM users WHERE status='Active' AND work!='None'";
 		$exec = mysqli_query($conn, $sql);
-		$leaders = mysqli_fetch_all($exec, MYSQLI_ASSOC);
+		while ($leader = mysqli_fetch_assoc($exec)) {array_push($leaders, $leader);}
 		return $leaders;
 	}
 
