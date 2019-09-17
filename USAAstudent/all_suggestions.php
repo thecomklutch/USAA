@@ -1,10 +1,10 @@
 <div class="w3-modal" id="id03">
 	<div class="w3-modal-content w3-border w3-round" style="margin: 0 auto; max-width: 500px;">
 		<div class="w3-center"><br>
-			<img src="usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">
+			<img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">
 		</div>
 		<div class="w3-container">
-				<hr style="width: 80%; margin: 60px;">
+		<hr style="width: 80%; margin-top: 10px; margin-bottom: 3px;">
 			<?php foreach ($ideas2 as $x1) {?>
 				<div class="w3-container w3-border w3-round" style="padding:10px; margin: 40px;">
 					<h2 class="w3-small">
