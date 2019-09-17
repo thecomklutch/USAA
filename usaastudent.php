@@ -24,7 +24,7 @@
 <script>
   setInterval(() => {
     $("#noticeboard").load("usaastudent.php #noticeboard >*");
-  }, 1000);
+  }, 3000);
 
 //   suggestions live 
 	setInterval(() => {
@@ -34,10 +34,10 @@
 // notifications constant update 
 	setInterval(() => {
 		$("#notificationsbar").load("usaastudent.php #notificationsbar >*");
-	}, 1000);
+	}, 2000);
 	setInterval(() => {
 		$("#notificationsbar2").load("usaastudent.php #notificationsbar2 >*");
-	}, 1000);
+	}, 2000);
 	
 </script>
 </head>
