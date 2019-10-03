@@ -1,143 +1,218 @@
-<?php include('USAAstudent/head.php');?>
-<?php include('USAAstudent/config.php')?>
-<?php include('USAAstudent/signup_login.php');?>
-<title>Signup</title>
-<head>
-<link rel="icon" href="USAAstudent/images/usaa.ico">
-<link rel="stylesheet" type="text/css" href="style_sheets/signup.css">
+<?php
+	include 'USAAstudent/config.php';
+	include 'USAAstudent/signup_login.php';
 
-</head>
-<body>
-	<div id="card-signup" class="w3-modal-content w3-card-4" style="max-width: 700px; margin-top: 40px; margin-bottom: 40px;">
-		<div class="w3-center"><br>
-			<img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">
-		</div>
-		<?php include('USAAstudent/errors.php'); ?>
-		<form class="w3-container" method="post" action="signup.php">
-			<div class="w3-section">
-
-			<!-- fieldset -->
-			<fieldset class="w3-round">
-			<legend align="center" class="w3-large"></b>Personal Information</b></legend>
-			<!--personal inforamtion-->
-				<!--<label>first_name:</label>-->
-				<input id="input" type="text" name="name1" placeholder="first name" class="w3-section w3-input w3-light-grey w3-border w3-round">
-				<!--<label>second_name:</label>-->
-				<input id="input" type="text" name="name2" placeholder="second name" class="w3-input w3-light-grey w3-border w3-round" >
-				<!--<label>Phone Number:</label>-->
-				<input id="input" type="number" name="phone_no" placeholder="Phone_number" class="w3-input w3-light-grey w3-border w3-round" >
-				<br>
-				<!--<label>Email:</label>-->
-				<input id="input" type="email" name="email" placeholder ="Email" class="w3-input w3-light-grey w3-border w3-round" ><br>
-				<!--<label>Parent's Name:</label>-->
-				<input id="input" type="text" name="parent_name" placeholder="Parent or Guardian's name" class="w3-input w3-light-grey w3-border w3-round" >
-				<!--<label>Parent's Contact</label>-->
-				<input id="input" type="text" name="parent_contact" placeholder="Parent or Guardian's contact" class="w3-input w3-light-grey w3-border w3-round" >
-				<!--<label>Home District:</label>-->
-				<input id="input" type="text" name="home" placeholder="Home District" class="w3-input w3-light-grey w3-border w3-round" >
-				<!--<label>Date Of Birth:</label>-->
-				<input id="input" type="text" name="dob" placeholder="dd/mm/yyy" class="w3-input w3-light-grey w3-border w3-round" >
-				<br>
-				<label>Password:</label>
-				<input type="password" minlength="6" maxlength="10" name="pass1" placeholder="Password" class="w3-input w3-light-grey w3-border w3-round" >
-				<br>
-				<label>Re-enter password:</label>
-				<input type="password" minlength="6" maxlength="10" name="pass2" placeholder="Re-enter password" class="w3-input w3-light-grey w3-border w3-round" >
+?>
+<html>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+		<script src="USAAstudent/usaastudent.js"></script>
+		<link rel="stylesheet" href="style_sheets/signup2.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	</head>
+	<body>
+		<!-- multistep form -->
+<div id="msform" method="post">
 	
-			</fieldset>
-			<!-- Passsport details-->
-				<br>
-			<fieldset class="w3-round">
-			<legend align="center" class="w3-large"></b>Passport Details</b></legend>
-				<label>Surname:</label>
-				<input type="text" name="surname" placeholder="surname" class="w3-input w3-light-grey w3-border w3-round">
-				<label>Given Name:</label>
-				<input type="text" name="surname2" placeholder="Given name" class="w3-input w3-light-grey w3-border w3-round">
-				<label>Passport_No:</label>
-				<input type="text" name="pass_no" placeholder="Passport Number" class="w3-input w3-light-grey w3-border w3-round" >
-				<label>Nationality:</label>
-				<input type="text" name="Nation" placeholder="Nationality" class="w3-input w3-light-grey w3-border w3-round">
-				<label>Date of Issue of the passport:</label>
-				<input type="text" name="date_of_issue" placeholder="dd/mm/yyyy" class="w3-input w3-light-grey w3-border w3-round">
-				<label>Date of Birth:</label>
-				<input type="text" name="passportdob" placeholder="dd/mm/yyyy" class="w3-input w3-light-grey w3-border w3-round" >
-			</fieldset>
-			<br>
-			<fieldset class="w3-round">
-			<legend align="center" class="w3-large"></b>School Details</b></legend>
-				<label>Wilaya:</label>
-				<select class="w3-btn w3-round w3-input w3-light-grey" name="wilaya">
-					<option class="w3-btn w3-round w3-input w3-light-grey">--select--</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Bourmedes</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">skikida</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Constantine</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Oran</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Algers</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Agha</option>
-				</select>
-				<br>
-				<label>University:</label>
-				<select class="w3-btn w3-round w3-input w3-light-grey" name="university">
-					<option class="w3-btn w3-round w3-input w3-light-grey">--select--</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Bourmedes university</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">skikida university</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Constantine university</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Oran university</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Algers university</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Agha university</option>
-				</select>
-				<br>
-				<label>Course:</label>
-				<select class="w3-btn w3-round w3-input w3-light-grey" name="course">
-					<option class="w3-btn w3-round w3-input w3-light-grey">--select--</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">French Literature</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">ST</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">SNV</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Architecture and Urban planning</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Medicine</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Mathematics and Computer Science</option>
-				</select>
-				<!--
-				<label>:</label>
-				<input type="text" name="name1" placeholder="first name" class="w3-input w3-light-grey w3-border w3-round" >
-				-->
-				<br>
-				<label>Academic Year:</label>
-				<select class="w3-btn w3-round w3-input w3-light-grey" name="AY">
-					<option class="w3-btn w3-round w3-input w3-light-grey">--select--</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">French Year</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Yr 1</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Yr 2</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Yr 3</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Yr 4</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Masters 1</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">Masters 2</option>
-				</select>
-				<br>
-				<label>Year of Enrollment:</label>
-				<select class="w3-btn w3-round w3-input w3-light-grey" name="enrollmentyear">
-					<option class="w3-btn w3-round w3-input w3-light-grey">--select--</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">2019</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">2018</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">2017</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">2016</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">2015</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">2014</option>
-					<option class="w3-btn w3-round w3-input w3-light-grey">2013</option>
-				</select>
-				<br>
-				<label>Residence card No:</label>
-				<input type="text" name="rcn" placeholder="Residence Card Number" class="w3-input w3-light-grey w3-border w3-round" >	
-				<br>
-			</fieldset>
-			<br>
-				<label><b>Gender:</b></label>
-				<input name="gender" value="male" type="radio" class="w3-circle w3-light-grey" <?php if (isset($gender) && $gender=="male") echo "checked";?>>Male
-				<input name="gender" value="female" type="radio" class="w3-circle w3-light-grey" <?php if (isset($gender) && $gender=="female") echo "checked";?>>Female
-				<br><hr>
-					<button name="sign_up" class="w3-button w3-block w3-blue w3-round w3-section w3-round w3-padding" type="submit" style="width:40%;">Sign up</button>
-					<h2 class="w3-small">Already a user <a href="login.php"> Login</a></h2>
-			</div>
-		</form>
-
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li class="active">Enter Personal Data</li>
+    <li>Passport Details</li>
+    <li>School Details</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+  <div class="w3-center"><br>
+		<img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-small" alt="usaa" style="width: 80px; height: 80px; margin-top: 0px;">
+	</div>
+  <h2 class="w3-small">Step 1</h2>
+	<h3 class="w3-small">Enter Personal Data</h3>
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="first_name" placeholder="First Name"><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="last_name" placeholder="Last Name" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="Date" id="DOB" placeholder="Date Of Birth" ><br />
+	
+	<select style="width: 100%; height: 30px;" class="w3-round w3-small" id="gender">
+		<option class="w3-small w3-round">--Select Gender--</option>
+		<option class="w3-small w3-round" value="M">Male</option>
+		<option class="w3-small w3-round" value="F">Female</option>
+	</select>
+	<br /><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="email" id="email" placeholder="E-mail" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="tel" id="contact" placeholder="Phone_number" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="parent_name" placeholder="Parent/Guardian Name" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="tel" id="parent_contact" placeholder="Parent/Guardian Phone number" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="home_district" placeholder="Home District" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="Password" id="password" placeholder="Password" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="Password" id="re_enter_password" placeholder="Re Enter Password" ><br />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+  <div class="w3-center"><br>
+		<img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-small" alt="usaa" style="width: 80px; height: 80px; margin-top: 0px;">
+	</div>
+  <h2 class="w3-small">Step 2</h2>
+	<h3 class="w3-small">Passport Details</h3>
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="surname" placeholder="surname" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="givenname" placeholder="givenname" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="passportnumber" placeholder="Passport Number" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="nationality" placeholder="Nationality" ><br />
+	<label class="w3-small">Date of issue:</label>
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="Date" id="dateofissue" placeholder="Date Of Issue" ><br />
+	<label class="w3-small">Date of birth:</label>
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="Date" id="DOB2" placeholder="Date Of Birth" ><br />
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+  <div class="w3-center"><br>
+		<img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-small" alt="usaa" style="width: 80px; height: 80px; margin-top: 0px;">
+	</div>
+	<h2 class="w3-small">Step 3</h2>
+	<h3 class="w3-small">School Details</h3><br />
+	<label class="w3-small">Wilaya:</label>
+				<select id="wilaya" style="width: 100%; height: 30px;" class="w3-round w3-small">
+					<option class="w3-small w3-round">--select wilaya--</option>
+					<option class="w3-small w3-round">Bourmedes</option>
+					<option class="w3-small w3-round">skikida</option>
+					<option class="w3-small w3-round">Constantine</option>
+					<option class="w3-small w3-round">Oran</option>
+					<option class="w3-small w3-round">Algers</option>
+					<option class="w3-small w3-round">Agha</option>
+				</select><br /><br />
+	<label class="w3-small">University:</label>
+				<select  id="university" style="width: 100%; height: 30px;" class="w3-round w3-small">
+					<option class="w3-small w3-round">--select University--</option>
+					<option class="w3-small w3-round">Bourmedes university</option>
+					<option class="w3-small w3-round">skikida university</option>
+					<option class="w3-small w3-round">Constantine university</option>
+					<option class="w3-small w3-round">Oran university</option>
+					<option class="w3-small w3-round">Algers university</option>
+					<option class="w3-small w3-round">Agha university</option>
+				</select><br /><br />
+	<label class="w3-small">Course:</label>
+				<select  id="course" style="width: 100%; height: 30px;" class="w3-round w3-small">
+					<option class="w3-small w3-round">--Select Course--</option>
+					<option class="w3-small w3-round">French Literature</option>
+					<option class="w3-small w3-round">ST</option>
+					<option class="w3-small w3-round">SNV</option>
+					<option class="w3-small w3-round">Architecture and Urban planning</option>
+					<option class="w3-small w3-round">Medicine</option>
+					<option class="w3-small w3-round">Mathematics and Computer Science</option>
+				</select><br /><br />
+	<label class="w3-small">Academic Year:</label>
+				<select  id="academic_year" style="width: 100%; height: 30px;" class="w3-round w3-small">
+					<option class="w3-small w3-round">--Select Academic Year--</option>
+					<option class="w3-small w3-round">French Year</option>
+					<option class="w3-small w3-round">Yr 1</option>
+					<option class="w3-small w3-round">Yr 2</option>
+					<option class="w3-small w3-round">Yr 3</option>
+					<option class="w3-small w3-round">Yr 4</option>
+					<option class="w3-small w3-round">Masters 1</option>
+					<option class="w3-small w3-round">Masters 2</option>
+				</select><br /><br />
+	<label class="w3-small">Year of Enrollment:</label>
+				<select  id="enrollmentyear" style="width: 100%; height: 30px;" class="w3-round w3-small">
+					<option class="w3-small w3-round">--Select Year of Enrollment--</option>
+					<option class="w3-small w3-round">2019</option>
+					<option class="w3-small w3-round">2018</option>
+					<option class="w3-small w3-round">2017</option>
+					<option class="w3-small w3-round">2016</option>
+					<option class="w3-small w3-round">2015</option>
+					<option class="w3-small w3-round">2014</option>
+					<option class="w3-small w3-round">2013</option>
+				</select><br /><br />
+	<label class="w3-small">Residence card No:</label>
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="residencecard" placeholder="Residence Card Number" ><br />
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="submit"  class="submit action-button" value="Sign up" onclick="signup()"/>
+  </fieldset>
 </div>
+<div id="results" style="margin: 0 auto;"></div>
+
+</body>
+</html>
+
+
+<script>
+			
+//jQuery time
+var current_fs, next_fs, previous_fs; //fieldsets
+var left, opacity, scale; //fieldset properties which we will animate
+var animating; //flag to prevent quick multi-click glitches
+
+$(".next").click(function(){
+	if(animating) return false;
+	animating = true;
+	
+	current_fs = $(this).parent();
+	next_fs = $(this).parent().next();
+	
+	//activate next step on progressbar using the index of next_fs
+	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+	
+	//show the next fieldset
+	next_fs.show(); 
+	//hide the current fieldset with style
+	current_fs.animate({opacity: 0}, {
+		step: function(now, mx) {
+			//as the opacity of current_fs reduces to 0 - stored in "now"
+			//1. scale current_fs down to 80%
+			scale = 1 - (1 - now) * 0.2;
+			//2. bring next_fs from the right(50%)
+			left = (now * 50)+"%";
+			//3. increase opacity of next_fs to 1 as it moves in
+			opacity = 1 - now;
+			current_fs.css({
+        'transform': 'scale('+scale+')',
+        'position': 'absolute'
+      });
+			next_fs.css({'left': left, 'opacity': opacity});
+		}, 
+		duration: 800, 
+		complete: function(){
+			current_fs.hide();
+			animating = false;
+		}, 
+		//this comes from the custom easing plugin
+		easing: 'easeInOutBack'
+	});
+});
+
+$(".previous").click(function(){
+	if(animating) return false;
+	animating = true;
+	
+	current_fs = $(this).parent();
+	previous_fs = $(this).parent().prev();
+	
+	//de-activate current step on progressbar
+	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+	
+	//show the previous fieldset
+	previous_fs.show(); 
+	//hide the current fieldset with style
+	current_fs.animate({opacity: 0}, {
+		step: function(now, mx) {
+			//as the opacity of current_fs reduces to 0 - stored in "now"
+			//1. scale previous_fs from 80% to 100%
+			scale = 0.8 + (1 - now) * 0.2;
+			//2. take current_fs to the right(50%) - from 0%
+			left = ((1-now) * 50)+"%";
+			//3. increase opacity of previous_fs to 1 as it moves in
+			opacity = 1 - now;
+			current_fs.css({'left': left});
+			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+		}, 
+		duration: 800, 
+		complete: function(){
+			current_fs.hide();
+			animating = false;
+		}, 
+		//this comes from the custom easing plugin
+		easing: 'easeInOutBack'
+	});
+});
+</script>

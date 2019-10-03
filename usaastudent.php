@@ -12,6 +12,12 @@
 <?php $officials = getleaders(); ?>
 <?php //$banknamez = banknames1(); ?>
 <?php include('USAAstudent/head.php');?>
+<?php 
+	$passportnumber = $_SESSION['user']['passport_no'];
+	// check if the bank accoun tis attarched
+	$sql = "SELECT * FROM `bdetails` WHERE passport_no = '$passportnumber'";
+	if (mysqli_query($conn, $sql)) {mysqli_query($conn, "UPDATE `users` SET `bankaccount` = 'Yes' WHERE `users`.`passport_no` = '$passportnumber'");}
+?>
 <title>Home</title>
 
 <!-- Including jQuery is required. -->

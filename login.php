@@ -1,13 +1,17 @@
 <?php include('USAAstudent/head.php');?>
 <?php include('USAAstudent/config.php');?>
 <?php include('USAAstudent/signup_login.php');?>
-<link rel="stylesheet" type="text/css" href="style_sheets/login.css">
+
 <link rel="stylesheet" href="style_sheets/fontawesome-free-5.10.2-web/css/font-awesome.min.css">
 <link rel="icon" href="USAAstudent/images/usaa.ico">
 
 <title>Login</title>
 </head>
-<body>
+<body style="
+	background: #373b44; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #373b44, #4286f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #373b44, #4286f4);
+">
 	<div id="card" class="w3-modal-content w3-card-4 w3-text-center" style="max-width: 400px; margin-top: 40px;">
 		<div class="w3-center"><br>
 			<img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">

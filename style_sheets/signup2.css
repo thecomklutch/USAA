@@ -1,134 +1,121 @@
-#signup-form{
-    width: 600px;
-    margin: 40px auto;
-    text-align: center;
-    position: relative;
-    border-radius: 5px;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 130;
-    padding: 0 50px;
-    background-color: #3b4652;
-    opacity: .85;
-    box-shadow: 0px 0px 30x #848484;
-}
+			/*custom font*/
+            @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-@import url(//fonts.googleapis.com/css?family=roboto);
-body{
-    font-family: 'roboto', sans-serif;
-}
-.a{
-    font-family: 'roboto', sans-serif;
-}
-
-#signup-fs{
-    background: white;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 15px 1px rgb(0, 0, 0.4);
-    box-sizing: border-box;
-    padding: 20px 30px;
-    width: 80%;
-    margin: 0 10%;
-    position: relative;
-}
-
-/* stacking fieldsets */
-#signup-fs:not(:first-of-type){
-    display: none;
-
-}
-
-#signup-fs, #signup-fs, input, textarea, select{
-    padding: 15px;
-    border: 1px solid #cccc;
-    border-radius: 5px;
-    margin-bottom: 50px;
-    width: 80%;
-    box-sizing: border-box;
-    font-family: 'roboto', sans-serif;
-    font-size: 16px;
-
-
-}
-
-input:focus{
-    box-shadow: 0 0 10px rgb(138, 224, 248);
-    border: 5px solid rgb(132, 210, 231);
-}
-Previous-button, next-button, submit{
-    border-radius: 5px;
-    background-color: rgb(39, 124, 221);
-    position: relative;
-    margin-bottom: 10  rgb(39, 124, 221);
-}
-
-#progress-bar{
-    font-family: 'roboto', sans-serif;
-    font-size: 16;
-    margin-bottom: 30px;
-    color: white;
-    overflow: hidden;
-    counter-reset: step;
-
-}
-#progress-bar li{
-    list-style-type: none;
-    color: white;
-    text-transform: uppercase;
-    font-size: 10px;
-    width: 33.33%;
-    float: left;
-    position: relative;
-}
-#progress-bar li::before{
-    content: counter(step);
-    counter-increment: step;
-    width: 30px;
-    line-height: 25px;
-    display: block;
-    font-size: 15px;
-    color: #333333;
-    background: white;
-    border-radius: 5px;
-    margin: 0 auto 5px auto;
-
-}
-
-/*progress*/
-#progress-bar li::after{
-    content: '';
-    width: 100%;
-    height: 3px;
-    background: white;
-    position: absolute;
-    left: -5%;
-    z-index: -1;
-}
-
-.next-button, .previous-button, .submit {
-    border-radius: 5px;
-    background: #27ae60;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px;
-}
-.next-button, .previous-button, .submit:hover, .next-button, .previous-button, .submit:focus{
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
-}
-
-.fs-title{
-    font-size: 15px;
-    text-decoration: uppercase;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-.fs-subtitle{
-    font-weight: normal;
-    font-size: 13px;
-    color: #666666;
-    margin-bottom: 20px;
-}
+            /*basic reset*/
+            * {margin: 0; padding: 0;}
+            
+            html {
+                height: 100%;
+                /*Image only BG fallback*/
+                
+                /*background = gradient + image pattern combo*/
+                background: #373b44; /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #373b44, #4286f4); /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #373b44, #4286f4);
+            }
+            
+            body {
+                font-family: montserrat, arial, verdana;
+            }
+            /*form styles*/
+            #msform {
+                width: 400px;
+                margin: 50px auto;
+                text-align: center;
+                position: relative;
+            }
+            #msform fieldset {
+                background: white;
+                border: 0 none;
+                border-radius: 3px;
+                box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+                padding: 20px 30px;
+                box-sizing: border-box;
+                width: 80%;
+                margin: 0 10%;
+                
+                /*stacking fieldsets above each other*/
+                position: relative;
+            }
+            /*Hide all except first fieldset*/
+            #msform fieldset:not(:first-of-type) {
+                display: none;
+            }
+            
+            /*buttons*/
+            #msform .action-button {
+                width: 100px;
+                background: #27AE60;
+                font-weight: bold;
+                color: white;
+                border: 0 none;
+                border-radius: 5px;
+                cursor: pointer;
+                padding: 10px 5px;
+                margin: 10px 5px;
+            }
+            #msform .action-button:hover, #msform .action-button:focus {
+                box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+            }
+            /*headings*/
+            /* .fs-title {
+                font-size: 15px;
+                text-transform: uppercase;
+                color: #2C3E50;
+                margin-bottom: 10px;
+            }
+            .fs-subtitle {
+                font-weight: normal;
+                font-size: 13px;
+                color: #666;
+                margin-bottom: 20px;
+            } */
+            /*progressbar*/
+            #progressbar {
+                margin-bottom: 30px;
+                overflow: hidden;
+                /*CSS counters to number the steps*/
+                counter-reset: step;
+            }
+            #progressbar li {
+                list-style-type: none;
+                color: white;
+                text-transform: uppercase;
+                font-size: 9px;
+                width: 33.33%;
+                float: left;
+                position: relative;
+            }
+            #progressbar li:before {
+                content: counter(step);
+                counter-increment: step;
+                width: 20px;
+                line-height: 20px;
+                display: block;
+                font-size: 10px;
+                color: #333;
+                background: white;
+                border-radius: 3px;
+                margin: 0 auto 5px auto;
+            }
+            /*progressbar connectors*/
+            #progressbar li:after {
+                content: '';
+                width: 100%;
+                height: 2px;
+                background: white;
+                position: absolute;
+                left: -50%;
+                top: 9px;
+                z-index: -1; /*put it behind the numbers*/
+            }
+            #progressbar li:first-child:after {
+                /*connector not needed before the first step*/
+                content: none; 
+            }
+            /*marking active/completed steps green*/
+            /*The number of the step and the connector before it = green*/
+            #progressbar li.active:before,  #progressbar li.active:after{
+                background: #27AE60;
+                color: white;
+            }
