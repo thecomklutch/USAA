@@ -79,22 +79,22 @@ $(".previous").click(function(){
 
 function signup() {
 		// persanal data 
-		var first = $("#first_name").val();
-		var second = $("#last_name").val();
+		var first = escapeRegExp($("#first_name").val());
+		var second = escapeRegExp($("#last_name").val());
 		var dob = $("#DOB").val();
 		var gender = $("#gender").val();
 		var email = $("#email").val();
 		var phone = $("#contact").val();
-		var parentn = $("#parent_name").val();
+		var parentn = escapeRegExp($("#parent_name").val());
 		var parentc = $("#parent_contact").val();
-		var home = $("#home_district").val();
+		var home = escapeRegExp($("#home_district").val());
 		var pass1 = $("#password").val();
 		var pass2 = $("#re_enter_password").val();
 	
 		// passport data
-		var surname = $("#surname").val();
-		var given = $("#givenname").val();
-		var passport = $("#passportnumber").val();
+		var surname = escapeRegExp($("#surname").val());
+		var given = escapeRegExp($("#givenname").val());
+		var passport = escapeRegExp($("#passportnumber").val());
 		var dateofissue = $("#dateofissue").val();
 		var dateofbirth = $("#DOB2").val();
 	
@@ -104,35 +104,49 @@ function signup() {
 		var course = $("#course").val();
 		var academicyear = $("#academic_year").val();
 		var yearofenrollment = $("#enrollmentyear").val();
-		var residencecardnumber = $("#residencecard").val();
+		var residencecardnumber = escapeRegExp($("#residencecard").val());
+		var errors = [];
 
 		if (!varlen(first) || !varlen(second) || !varlen(dob) || !varlen(parentn) || !varlen(home) || !varlen(pass1)) {
-			notify("Please fill in all the data at Step 1");
+			errors.push("Please fill in all the data at Step 1 ");
+		}
+		
+		if (!emailIsValid(email) || !varlen(email)) {
+			errors.push("Please check your email address.");
+		}
+		
+		if (!validatephone(phone)) {
+			errors.push("Please enter a valid personal number at Step 1 ");
+		}
+		
+		if (!validatephone(parentc)) {
+			errors.push("Please a valid parent's or Guardian's number at Step 1 ");
+		}
+		
+		if (pass1 != pass2) {
+			errors.push("Passwords don't match ");
+		}
+		
+		if (gender == 'select') {
+			errors.push("Please select gender ");
+		}
+		
+		if (!varlen(surname) || !varlen(given) || !varlen(passport) || !varlen(dateofbirth) || !varlen(dateofissue)) {
+			errors.push("Please fill in all the data at Step 2 ");
+		}
+		
+		if (first != surname || second != given) {
+			errors.push("Personal names don't match with passport names. Please check again ");
+		}
+		
+		if (wilaya == 'select' || university == 'select' || course == 'select' || academicyear == 'select' || yearofenrollment == 'select') {
+			errors.push("Please select all the fields at Step 3 ");
+		}
 
-		} else if (!emailIsValid(email) || !varlen(email)) {
-			notify("Please check your email address");
-
-		} else if (!validatephone(phone)) {
-			notify("Please enter a valid personal number at Step 1");
-
-		} else if (!validatephone(parentc)) {
-			notify("Please a valid parent's or Guardian's number at Step 1");
-
-		} else if (pass1 != pass2) {
-			notify("Passwords don't match");
-
-		} else if (gender == 'select') {
-			notify("Please select gender");
-
-		} else if (!varlen(surname) || !varlen(given) || !varlen(passport) || !varlen(dateofbirth) || !varlen(dateofissue)) {
-			notify("Please fill in all the data at Step 2");
-
-		} else if (wilaya == 'select' || university == 'select' || course == 'select' || academicyear == 'select' || yearofenrollment == 'select') {
-			notify("Please select all the fields at Step 3");
-
-		} else if (first != surname || second != given) {
-			notify("Personal names don't match with passport names. Please check again");
-
+		if (errors.length != 0) {
+			document.getElementById('notification').style.display='block';
+			document.getElementById('notificationmsg').innerHTML = errors;
+			window.scrollTo(0, 0);
 		} else {
 			$.ajax({
 				type: 'POST',
@@ -170,21 +184,20 @@ function signup() {
 		return obj.length;
 	}
 
-	function emailIsValid (email) {
-		return /\S+@\S+\.\S+/.test(email)
+	function emailIsValid (mail) {
+		var re = /^[a-zA-Z0-9]+@[gmail | yahoo | outlook]+.[com | fr | uk]*$/;
+		return re.test(mail);
+	  }
+
+	  function escapeRegExp(string){
+		return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 	  }
 
 
 	function validatephone(phone) {
-		if (phone.length < 10 || phone.length > 10) {
+		if (phone.length == 10) {
 			return true;
 		} else {
 			return false;
 		}
-	}
-
-	function notify(msg) {
-		document.getElementById('notification').style.display='block';
-		document.getElementById('notificationmsg').innerHTML = msg;
-		window.scrollTo(0, 0);
 	}
