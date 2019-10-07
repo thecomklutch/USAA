@@ -9,14 +9,19 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-		<script src="USAAstudent/usaastudent.js"></script>
 		<link rel="stylesheet" href="style_sheets/signup2.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	</head>
+
 	<body>
 		<!-- multistep form -->
 <div id="msform" method="post">
-	
+	<noscript><div style="background-color: #ba3529; border-radius: 3px; padding: 20px;"><span style="color: white">Please Enable javascript in your browser to use the USAA student platform</span></div></noscript>
+	<br />
+	<div id="notification" style="display: none; background-color: #ba3529; border-radius: 3px; padding: 20px;">
+		<span style="color: white"><span id="notificationmsg"></span></span>
+	</div>
+	<br />
   <!-- progressbar -->
   <ul id="progressbar">
     <li class="active">Enter Personal Data</li>
@@ -30,20 +35,20 @@
 	</div>
   <h2 class="w3-small">Step 1</h2>
 	<h3 class="w3-small">Enter Personal Data</h3>
-	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="first_name" placeholder="First Name"><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="first_name" placeholder="First Name" ><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="last_name" placeholder="Last Name" ><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="Date" id="DOB" placeholder="Date Of Birth" ><br />
 	
 	<select style="width: 100%; height: 30px;" class="w3-round w3-small" id="gender">
-		<option class="w3-small w3-round">--Select Gender--</option>
+		<option class="w3-small w3-round" value="select">--Select Gender--</option>
 		<option class="w3-small w3-round" value="M">Male</option>
 		<option class="w3-small w3-round" value="F">Female</option>
 	</select>
 	<br /><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="email" id="email" placeholder="E-mail" ><br />
-	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="tel" id="contact" placeholder="Phone_number" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="number" id="contact" placeholder="Phone_number" ><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="parent_name" placeholder="Parent/Guardian Name" ><br />
-	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="tel" id="parent_contact" placeholder="Parent/Guardian Phone number" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="number" id="parent_contact" placeholder="Parent/Guardian Phone number" ><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="home_district" placeholder="Home District" ><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="Password" id="password" placeholder="Password" ><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="Password" id="re_enter_password" placeholder="Re Enter Password" ><br />
@@ -74,7 +79,7 @@
 	<h3 class="w3-small">School Details</h3><br />
 	<label class="w3-small">Wilaya:</label>
 				<select id="wilaya" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round">--select wilaya--</option>
+					<option class="w3-small w3-round" value="select">--select wilaya--</option>
 					<option class="w3-small w3-round">Bourmedes</option>
 					<option class="w3-small w3-round">skikida</option>
 					<option class="w3-small w3-round">Constantine</option>
@@ -84,7 +89,7 @@
 				</select><br /><br />
 	<label class="w3-small">University:</label>
 				<select  id="university" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round">--select University--</option>
+					<option class="w3-small w3-round" value="select">--select University--</option>
 					<option class="w3-small w3-round">Bourmedes university</option>
 					<option class="w3-small w3-round">skikida university</option>
 					<option class="w3-small w3-round">Constantine university</option>
@@ -94,7 +99,7 @@
 				</select><br /><br />
 	<label class="w3-small">Course:</label>
 				<select  id="course" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round">--Select Course--</option>
+					<option class="w3-small w3-round" value="select">--Select Course--</option>
 					<option class="w3-small w3-round">French Literature</option>
 					<option class="w3-small w3-round">ST</option>
 					<option class="w3-small w3-round">SNV</option>
@@ -104,7 +109,7 @@
 				</select><br /><br />
 	<label class="w3-small">Academic Year:</label>
 				<select  id="academic_year" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round">--Select Academic Year--</option>
+					<option class="w3-small w3-round" value="select">--Select Academic Year--</option>
 					<option class="w3-small w3-round">French Year</option>
 					<option class="w3-small w3-round">Yr 1</option>
 					<option class="w3-small w3-round">Yr 2</option>
@@ -115,7 +120,7 @@
 				</select><br /><br />
 	<label class="w3-small">Year of Enrollment:</label>
 				<select  id="enrollmentyear" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round">--Select Year of Enrollment--</option>
+					<option class="w3-small w3-round" value="select">--Select Year of Enrollment--</option>
 					<option class="w3-small w3-round">2019</option>
 					<option class="w3-small w3-round">2018</option>
 					<option class="w3-small w3-round">2017</option>
@@ -130,89 +135,7 @@
     <input type="submit"  class="submit action-button" value="Sign up" onclick="signup()"/>
   </fieldset>
 </div>
-<div id="results" style="margin: 0 auto;"></div>
-
+<script src="USAAstudent/signup.js"></script>
 </body>
 </html>
 
-
-<script>
-			
-//jQuery time
-var current_fs, next_fs, previous_fs; //fieldsets
-var left, opacity, scale; //fieldset properties which we will animate
-var animating; //flag to prevent quick multi-click glitches
-
-$(".next").click(function(){
-	if(animating) return false;
-	animating = true;
-	
-	current_fs = $(this).parent();
-	next_fs = $(this).parent().next();
-	
-	//activate next step on progressbar using the index of next_fs
-	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-	
-	//show the next fieldset
-	next_fs.show(); 
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale current_fs down to 80%
-			scale = 1 - (1 - now) * 0.2;
-			//2. bring next_fs from the right(50%)
-			left = (now * 50)+"%";
-			//3. increase opacity of next_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({
-        'transform': 'scale('+scale+')',
-        'position': 'absolute'
-      });
-			next_fs.css({'left': left, 'opacity': opacity});
-		}, 
-		duration: 800, 
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-		}, 
-		//this comes from the custom easing plugin
-		easing: 'easeInOutBack'
-	});
-});
-
-$(".previous").click(function(){
-	if(animating) return false;
-	animating = true;
-	
-	current_fs = $(this).parent();
-	previous_fs = $(this).parent().prev();
-	
-	//de-activate current step on progressbar
-	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-	
-	//show the previous fieldset
-	previous_fs.show(); 
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale previous_fs from 80% to 100%
-			scale = 0.8 + (1 - now) * 0.2;
-			//2. take current_fs to the right(50%) - from 0%
-			left = ((1-now) * 50)+"%";
-			//3. increase opacity of previous_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({'left': left});
-			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-		}, 
-		duration: 800, 
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-		}, 
-		//this comes from the custom easing plugin
-		easing: 'easeInOutBack'
-	});
-});
-</script>

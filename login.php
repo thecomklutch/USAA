@@ -12,7 +12,9 @@
     background: -webkit-linear-gradient(to right, #373b44, #4286f4); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #373b44, #4286f4);
 ">
+	<noscript><div style="background-color: #ba3529; border-radius: 3px; max-width: 400px; margin: 0 auto; margin-top: 20px; padding: 20px;"><span style="color: white">Please Enable javascript in your browser to use the USAA student platform</span></div></noscript>
 	<div id="card" class="w3-modal-content w3-card-4 w3-text-center" style="max-width: 400px; margin-top: 40px;">
+	
 		<div class="w3-center"><br>
 			<img src="USAAstudent/images/usaa.jpg" class="w3-circle w3-margin-top w3-small" alt="usaa">
 		</div>

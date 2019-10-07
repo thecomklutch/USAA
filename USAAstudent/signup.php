@@ -47,6 +47,8 @@
             '$dateofbirth2', ' ', ' ', '$yearofenrollment', 'None'
             )";
             if (mysqli_query($conn, $query)) {
+                // set user's session
+                $_SESSION['user'] = getuser($email);
                 // generate the code to be sent to the user
                 $code = rand(100, 1000);
                 mysqli_query($conn, "UPDATE `users` SET `code1` = '$code' WHERE `users`.`passport_no` = '$passportnumber'");
@@ -55,42 +57,19 @@
                 // emailuser($email);?>
                 <script>
                     Swal.fire({
-                        title: 'Enter the verification code sent to your email',
-                        input: 'number',
-                        inputAttributes: {
-                            autocapitalize: 'off'
-                        },
-                        showCancelButton: true,
-                        confirmButtonText: 'Verify',
-                        showLoaderOnConfirm: true,
-                        preConfirm: (login) => {
-                            return fetch(`//api.github.com/users/${login}`)
-                            .then(response => {
-                                if (!response.ok) {
-                                throw new Error(response.statusText)
-                                }
-                                return response.json()
-                            })
-                            .catch(error => {
-                                Swal.showValidationMessage(
-                                `Verification failed: ${error}`
-                                )
-                            })
-                        },
-                        allowOutsideClick: () => !Swal.isLoading()
-                        }).then((result) => {
-                        if (result.value) {
-                            Swal.fire({
-                            title: `${result.value.login}'s avatar`,
-                            imageUrl: result.value.avatar_url
-                        })
-                        }
+                        
+                        type: 'success',
+                        title: 'You have been registered successfully',
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                        footer: '<a href="USAAstudent/accountemailverfication.php">Click here to verify ure email</a>'
+                        
                     })
-                
                 </script>
             <?php 
                 // Enter the confirmation code from the email 
                 // header('location: accountverification.php');
+                echo $_SESSION['user']['email'];
 
             } else {echo (mysqli_error($conn));}
 
@@ -98,14 +77,11 @@
 
     function getuser($id) {
 		global $conn;
+		//query the database
 		$sql = "SELECT * FROM users WHERE email='$id'";
 		$results = mysqli_query($conn, $sql);
 		$users = mysqli_fetch_assoc($results);
 		return $users;
-    }
-    
-    function mailuser($email) {
-
-    }
+	}
 
 ?>

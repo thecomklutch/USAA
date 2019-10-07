@@ -130,78 +130,7 @@ function postadmin()
 		});
 	}
 
-	function signup() {
-		// persanal data 
-		var first = $("#first_name").val();
-		var second = $("#last_name").val();
-		var dob = $("#DOB").val();
-		var gender = $("#gender").val();
-		var email = $("#email").val();
-		var phone = $("#contact").val();
-		var parentn = $("#parent_name").val();
-		var parentc = $("#parent_contact").val();
-		var home = $("#home_district").val();
-		var pass1 = $("#password").val();
-		var pass2 = $("#re_enter_password").val();
-	
-		// passport data
-		var surname = $("#surname").val();
-		var given = $("#givenname").val();
-		var passport = $("#passportnumber").val();
-		var dateofissue = $("#dateofissue").val();
-		var dateofbirth = $("#DOB2").val();
-	
-		// school details 
-		var wilaya = $("#wilaya").val();
-		var university = $("#university").val();
-		var course = $("#course").val();
-		var academicyear = $("#academic_year").val();
-		var yearofenrollment = $("#enrollmentyear").val();
-		var residencecardnumber = $("#residencecard").val();
-		$.ajax({
-			type: 'POST',
-			url:'USAAstudent/signup.php',
-			data: {
-				"fn":first,
-				"sn":second,
-				"dob":dob,
-				"gender":gender,
-				"email":email,
-				"phone":phone,
-				"parentname":parentn,
-				"parentcontact":parentc,
-				"district":home,
-				"passportnumber":passport,
-				"doi":dateofissue,
-				"dob2":dateofbirth,
-				"wilaya":wilaya,
-				"university":university,
-				"course":course,
-				"academicyear":academicyear,
-				"yoe":yearofenrollment,
-				"rcn":residencecardnumber,
-				"password":pass1
-			},
-			success:function(html) {
-				$("#msform").html(html).hide();
-				$("#results").html(html).show();
-			}
-		});
-	}
 
-	function verifyaccount() {
-        var code1 = $("#code").val();
-        $.ajax({
-            type: 'POST',
-            url: 'USAAstudent/verifyaccount.php',
-            data: {
-                "verificationcode": code1
-            },
-            success:function(html) {
-                $("#result2").html(html).show();
-            }
-        });
-	}
 
 	
 	
