@@ -132,6 +132,28 @@
 		return $leaders;
 	}
 
+	// get all the wilayas
+	function wilayaz() 
+	{
+		global $conn;
+		$wilayas = array();
+		$sql = "SELECT location FROM `details`";
+		$exec = mysqli_query($conn, $sql);
+		while ($wilaya = mysqli_fetch_assoc($exec)) {array_push($wilayas, $wilaya);}
+		// $wilaya_filtered = array_unique($wilayas);
+		return $wilayas;
+	}
+
+	function universities() 
+	{
+		global $conn; 
+		$universitiez = array();
+		$sql = "SELECT universities, location FROM `details`";
+		$exec = mysqli_query($conn, $sql);
+		while ($university = mysqli_fetch_assoc($exec)) {array_push($universitiez, $university);}
+		return $universitiez;
+	}
+
 	//get the bank names from the database
 	//function banknames1()
 	//{

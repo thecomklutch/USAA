@@ -143,6 +143,18 @@ function signup() {
 			errors.push("Please select all the fields at Step 3 ");
 		}
 
+		if (wilaya == 'Wilaya') {
+			errors.push("Please select your wilaya");
+		}
+
+		if (university == 'University') {
+			errors.push("Please select your Univeristy ");
+		}
+
+		if (academicyear == 'French Year' && course != 'French Literature') {
+			errors.push("French Year students must be studying French Literature");
+		}
+
 		if (errors.length != 0) {
 			document.getElementById('notification').style.display='block';
 			document.getElementById('notificationmsg').innerHTML = errors;

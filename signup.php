@@ -1,6 +1,10 @@
 <?php
+	header ('Content-type: text/html; charset=iso8859-15');
 	include 'USAAstudent/config.php';
-	include 'USAAstudent/signup_login.php';
+	include 'USAAstudent/functions.php';
+
+	$student_wilayas = wilayaz();
+	$student_universities = universities();
 
 ?>
 <html>
@@ -80,27 +84,21 @@
 	<label class="w3-small">Wilaya:</label>
 				<select id="wilaya" style="width: 100%; height: 30px;" class="w3-round w3-small">
 					<option class="w3-small w3-round" value="select">--select wilaya--</option>
-					<option class="w3-small w3-round">Bourmedes</option>
-					<option class="w3-small w3-round">skikida</option>
-					<option class="w3-small w3-round">Constantine</option>
-					<option class="w3-small w3-round">Oran</option>
-					<option class="w3-small w3-round">Algers</option>
-					<option class="w3-small w3-round">Agha</option>
+					<?php foreach($student_wilayas as $student_wilaya) {?>
+					<option class="w3-small w3-round"><?php echo $student_wilaya['location'];?></option>
+					<?php }?>
 				</select><br /><br />
 	<label class="w3-small">University:</label>
 				<select  id="university" style="width: 100%; height: 30px;" class="w3-round w3-small">
 					<option class="w3-small w3-round" value="select">--select University--</option>
-					<option class="w3-small w3-round">Bourmedes university</option>
-					<option class="w3-small w3-round">skikida university</option>
-					<option class="w3-small w3-round">Constantine university</option>
-					<option class="w3-small w3-round">Oran university</option>
-					<option class="w3-small w3-round">Algers university</option>
-					<option class="w3-small w3-round">Agha university</option>
+					<?php foreach($student_universities as $student_university) {?>
+					<option class="w3-small w3-round"><?php echo $student_university['universities'];?><span style="display: none"><?php echo '.'.$student_university['location'];?></span></option>
+					<?php }?>
 				</select><br /><br />
 	<label class="w3-small">Course:</label>
 				<select  id="course" style="width: 100%; height: 30px;" class="w3-round w3-small">
 					<option class="w3-small w3-round" value="select">--Select Course--</option>
-					<option class="w3-small w3-round">French Literature</option>
+					<option class="w3-small w3-round" value="French Literature">French Literature</option>
 					<option class="w3-small w3-round">ST</option>
 					<option class="w3-small w3-round">SNV</option>
 					<option class="w3-small w3-round">Architecture and Urban planning</option>
@@ -110,13 +108,16 @@
 	<label class="w3-small">Academic Year:</label>
 				<select  id="academic_year" style="width: 100%; height: 30px;" class="w3-round w3-small">
 					<option class="w3-small w3-round" value="select">--Select Academic Year--</option>
-					<option class="w3-small w3-round">French Year</option>
-					<option class="w3-small w3-round">Yr 1</option>
-					<option class="w3-small w3-round">Yr 2</option>
-					<option class="w3-small w3-round">Yr 3</option>
-					<option class="w3-small w3-round">Yr 4</option>
-					<option class="w3-small w3-round">Masters 1</option>
-					<option class="w3-small w3-round">Masters 2</option>
+					<option class="w3-small w3-round" value="French Year">French Year</option>
+					<option class="w3-small w3-round" value="1">Year 1</option>
+					<option class="w3-small w3-round" value="2">Year 2</option>
+					<option class="w3-small w3-round" value="3">Year 3</option>
+					<option class="w3-small w3-round" value="4">Year 4</option>
+					<option class="w3-small w3-round" value="5">Year 5</option>
+					<option class="w3-small w3-round" value="6">Year 6</option>
+					<option class="w3-small w3-round" value="7">Year 7</option>
+					<option class="w3-small w3-round" value="11">Masters 1</option>
+					<option class="w3-small w3-round" value="12">Masters 2</option>
 				</select><br /><br />
 	<label class="w3-small">Year of Enrollment:</label>
 				<select  id="enrollmentyear" style="width: 100%; height: 30px;" class="w3-round w3-small">
@@ -129,8 +130,8 @@
 					<option class="w3-small w3-round">2014</option>
 					<option class="w3-small w3-round">2013</option>
 				</select><br /><br />
-	<label class="w3-small">Residence card No:</label>
-	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="residencecard" placeholder="Residence Card Number" ><br />
+	<label class="w3-small">Student's card No:</label>
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="residencecard" placeholder="Student's Card Number" ><br />
     <input type="button" name="previous" class="previous action-button" value="Previous" />
     <input type="submit"  class="submit action-button" value="Sign up" onclick="signup()"/>
   </fieldset>

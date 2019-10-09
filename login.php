@@ -1,7 +1,6 @@
-<?php include('USAAstudent/head.php');?>
 <?php include('USAAstudent/config.php');?>
-<?php include('USAAstudent/signup_login.php');?>
-
+<?php include('USAAstudent/login.php');?>
+<?php include('USAAstudent/head.php');?>
 <link rel="stylesheet" href="style_sheets/fontawesome-free-5.10.2-web/css/font-awesome.min.css">
 <link rel="icon" href="USAAstudent/images/usaa.ico">
 
@@ -34,7 +33,7 @@
 			</div class ="w3-text-center">
 			<div class="w3-container">
 				<!--forgot section-->
-				<h2 id="forgot" class="w3-small w3-section"><a href="#">Forgot password?</a> or <a href="signup.php">Sign up</a></h2>
+				<h2 id="forgot" class="w3-small w3-section"><a href="#"></a> or <a href="signup.php">Sign up</a></h2>
 			</div>
 		</form>
 </div>
