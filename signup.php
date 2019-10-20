@@ -15,6 +15,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 		<link rel="stylesheet" href="style_sheets/signup2.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="icon" href="USAAstudent/images/usaa.ico">
 	</head>
 
 	<body>
@@ -44,13 +45,13 @@
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="Date" id="DOB" placeholder="Date Of Birth" ><br />
 	
 	<select style="width: 100%; height: 30px;" class="w3-round w3-small" id="gender">
-		<option class="w3-small w3-round" value="select">--Select Gender--</option>
+		<option class="w3-small w3-round" value="select">Select Gender</option>
 		<option class="w3-small w3-round" value="M">Male</option>
 		<option class="w3-small w3-round" value="F">Female</option>
 	</select>
 	<br /><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="email" id="email" placeholder="E-mail" ><br />
-	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="number" id="contact" placeholder="Phone_number" ><br />
+	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="number" id="contact" placeholder="Phone number" ><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="parent_name" placeholder="Parent/Guardian Name" ><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="number" id="parent_contact" placeholder="Parent/Guardian Phone number" ><br />
 	<input class="w3-input w3-round w3-border w3-small" style="height: 30px;" type="text" id="home_district" placeholder="Home District" ><br />
@@ -83,21 +84,21 @@
 	<h3 class="w3-small">School Details</h3><br />
 	<label class="w3-small">Wilaya:</label>
 				<select id="wilaya" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round" value="select">--select wilaya--</option>
+					<option class="w3-small w3-round" value="select">select wilaya</option>
 					<?php foreach($student_wilayas as $student_wilaya) {?>
 					<option class="w3-small w3-round"><?php echo $student_wilaya['location'];?></option>
 					<?php }?>
 				</select><br /><br />
 	<label class="w3-small">University:</label>
 				<select  id="university" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round" value="select">--select University--</option>
+					<option class="w3-small w3-round" value="select">select University</option>
 					<?php foreach($student_universities as $student_university) {?>
 					<option class="w3-small w3-round"><?php echo $student_university['universities'];?><span style="display: none"><?php echo '.'.$student_university['location'];?></span></option>
 					<?php }?>
 				</select><br /><br />
 	<label class="w3-small">Course:</label>
 				<select  id="course" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round" value="select">--Select Course--</option>
+					<option class="w3-small w3-round" value="select">Select Course</option>
 					<option class="w3-small w3-round" value="French Literature">French Literature</option>
 					<option class="w3-small w3-round">ST</option>
 					<option class="w3-small w3-round">SNV</option>
@@ -107,7 +108,7 @@
 				</select><br /><br />
 	<label class="w3-small">Academic Year:</label>
 				<select  id="academic_year" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round" value="select">--Select Academic Year--</option>
+					<option class="w3-small w3-round" value="select">Select Academic Year</option>
 					<option class="w3-small w3-round" value="French Year">French Year</option>
 					<option class="w3-small w3-round" value="1">Year 1</option>
 					<option class="w3-small w3-round" value="2">Year 2</option>
@@ -121,7 +122,7 @@
 				</select><br /><br />
 	<label class="w3-small">Year of Enrollment:</label>
 				<select  id="enrollmentyear" style="width: 100%; height: 30px;" class="w3-round w3-small">
-					<option class="w3-small w3-round" value="select">--Select Year of Enrollment--</option>
+					<option class="w3-small w3-round" value="select">Select Year of Enrollment</option>
 					<option class="w3-small w3-round">2019</option>
 					<option class="w3-small w3-round">2018</option>
 					<option class="w3-small w3-round">2017</option>
